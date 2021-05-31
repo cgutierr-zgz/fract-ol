@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/31 13:16:14 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/31 13:17:28 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ int	main(int argc, char **argv)
 	ft_bzero(&cub, sizeof(t_cub));
 	if (argc < 2)
 	{
-		print_simple_errors("A map is needed");
+		print_simple_errors("A command is needed");
+		printf("Try with:\n\t·julia\n\t·mandelbrot\n");
 		exit(1);
 	}
 	if (argc == 2)
