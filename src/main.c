@@ -6,24 +6,20 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/01 00:58:21 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/01 01:35:58 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
+/*
 int destroy(t_fractol *cub)
 {
 
-	int x = cub->save_first;
-	x++;
 	exit(1);
 }
 
 int keys(int keycode, t_fractol *cub)
 {
-	int x = cub->save_first;
-	x++;
 	if (keycode == K_ESC)
 		destroy(cub);
 	printf("\rbye\n"); //cub->mov.up = 1;
@@ -31,7 +27,7 @@ int keys(int keycode, t_fractol *cub)
 	if (keycode == K_W)
 	{
 	}
-	/*if (keycode == K_A)
+	if (keycode == K_A)
 		cub->mov.left = 1;
 	if (keycode == K_S)
 		cub->mov.down = 1;
@@ -42,10 +38,9 @@ int keys(int keycode, t_fractol *cub)
 	if (keycode == K_RIGHT)
 		cub->mov.rotate_right = 1;
 	else if (keycode == L_SHIFT)
-		cub->mov.mov_s *= 2;*/
+		cub->mov.mov_s *= 2;
 	return (keycode);
-}
-//#include <curses.h>
+}*/
 
 static void good_args(char **argv, t_fractol *fractol)
 {
@@ -55,20 +50,24 @@ static void good_args(char **argv, t_fractol *fractol)
 		printf(W_B_RED "\"%s\"\n" RESET, argv[1]);
 		printf("Try with:\n\t·julia\n\t·mandelbrot\n");
 		exit(1);
-		//FIXME: cambiar este exit por otra cosa en este y argc < 2 y tal
 	}
-	fractol->save_first = 1;
-	//	read_file(cub);
+	if (ft_strcmp("julia", argv[1]))
+		fractol->julia = 1;
+	if (ft_strcmp("mandelbrot", argv[1]))
+		fractol->mandelbrot = 1;
 	/*
 	Minilibx+window
 	Handle events (Hooks+loop)
 	Teclas -> Esc, mover, zooms, etc...
 	Pintar
 	Cerrar
-	// save?
-*/
+	IDEAS BONUS:
+	• Un fractal diferente más.
+	• El zoom sigue la posición actual del ratón.
+	• Adicionalmente al zoom: moverse con flechas.
+	• Haz que el rango de color cambie.
+	*/
 
-	/*
 	fractol->mlx = mlx_init();
 	if (!fractol->mlx)
 	{
@@ -76,15 +75,21 @@ static void good_args(char **argv, t_fractol *fractol)
 		exit(1);
 	}
 	//TODO: Change 100 x 100 for window size
-fractol->window = mlx_new_window(fractol->mlx, 100, 100, "SOPA");*/
+//	int	x;
+//	int	y;
+
+	//mlx_get_screen_size(fractol->mlx, &x, &y);
+	mlx_get_screen_size(fractol->mlx, &fractol->screen.x, &fractol->screen.y);
+	//mlx_get_screen_size(fractol->mlx, fractol->window.x, &fractol->window.y);
+
+// FIXME: 45 55.. etcc
+	fractol->window = mlx_new_window(fractol->mlx, fractol->screen.x, fractol->screen.y - 55, "fract-ol");
 
 	//	mlx_hook(fractol->window, KEY_PRESS, 1L << 0, keys, fractol);
-	/*mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, cub);
-	mlx_hook(fractol->window, KEY_RELEASE, 1L << 1, key_release, cub);
-	mlx_loop_hook(cub->mlx, raycast, cub);
-*/
-	//	mlx_loop(fractol->mlx); // change this for a while(1) loop
+	//	mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, cub);
+	//	mlx_hook(fractol->window, KEY_RELEASE, 1L << 1, key_release, cub);
 
+	mlx_loop(fractol->mlx);
 }
 
 int main(int argc, char **argv)

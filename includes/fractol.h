@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/31 15:08:44 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/01 01:26:24 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,8 @@ typedef struct s_fractol
 {
 	t_img			main_img;
 	int				order;
-	int				save_first;
+	int				julia;
+	int				mandelbrot;
 	t_xy			screen;
 	void			*mlx;
 	void			*window;
