@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/31 13:14:35 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/31 13:17:47 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ RESET		:="\x1b[0m"
 
 #Easily execute your main
 exe:			$(NAME)
-				@./fractol
+				@./fractol || true
 # VALGRIND
 #         --leak-check=full \ Each individual leak will be shown in detail
 #         --show-leak-kinds=all \ Show all of "definite, indirect, possible, reachable" leak kinds in the "full" report.

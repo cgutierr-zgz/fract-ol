@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/31 13:17:28 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/31 13:19:58 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,36 +65,25 @@ void	read_file(t_cub *cub)
 	start_graphics(cub);
 }
 */
-/*
-** We check if the map is a valid file
-** Check of the '--save' command
-** If everything it's OK -> read_file
-*/
 
-static void	good_args(char **argv, t_cub *cub)
+static void	good_args(char **argv, t_cub *fractol)
 {
-	if (!ft_strcmp("julia", argv[1]) || !ft_strcmp("mandelbrot", argv[1]))
+	if (!ft_strcmp("julia", argv[1]) && !ft_strcmp("mandelbrot", argv[1]))
 	{
 		printf("Error\nUnknown command: ");
 		printf(W_B_RED "\"%s\"\n" RESET, argv[1]);
 		printf("Try with:\n\t·julia\n\t·mandelbrot\n");
 		exit(1);
 	}
-	cub->save_first = 1;
+	fractol->save_first = 1;
 //	read_file(cub);
 }
 
-/*
-** First we initialize our main structure
-** We do some error checking
-** If everything it's OK -> good_args
-*/
-
 int	main(int argc, char **argv)
 {
-	t_cub	cub;
+	t_cub	fractol;
 
-	ft_bzero(&cub, sizeof(t_cub));
+	ft_bzero(&fractol, sizeof(t_cub));
 	if (argc < 2)
 	{
 		print_simple_errors("A command is needed");
@@ -108,7 +97,7 @@ int	main(int argc, char **argv)
 			print_simple_errors("Executable must be a \"fractol\" file");
 			exit(1);
 		}
-		good_args(argv, &cub);
+		good_args(argv, &fractol);
 	}
 	if (argc > 2)
 	{
