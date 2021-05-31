@@ -1,0 +1,13 @@
+a.out
+*.a
+*.o
+*.swiftmodule
+fractol
+libmlx.dylib
+._.DS_Store
+.DS_Store
+._*
+*.dSYM
+libmlx.dylib
+*.swiftdoc
+*.swiftmodule
