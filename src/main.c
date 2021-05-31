@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/01 00:54:07 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/01 00:56:01 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ fractol->window = mlx_new_window(fractol->mlx, 100, 100, "SOPA");*/
 /*
 	while (1)
 	{
-		/* code */
 		if (getch() == '\033')
 		{			 // if the first value is esc
 			getch(); // skip the [
