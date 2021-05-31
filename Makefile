@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/31 13:17:47 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/01 00:53:53 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ OBJS_B			=	$(SRCS_B:.c=.o)
 
 CC				=	gcc
 
-CFLAGS			=	-Wall -Werror -Wextra -O3#-g3 -fsanitize=address
+CFLAGS			=	-Wall -Werror -Wextra -O3#-g3 -fsanitize=address#-lcurses
 
 MLXFLAGS		=	libmlx.dylib -framework Metal -framework AppKit
 
