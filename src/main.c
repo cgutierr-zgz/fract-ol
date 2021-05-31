@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/01 00:56:01 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/01 00:58:21 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void good_args(char **argv, t_fractol *fractol)
 		printf("Error\nUnknown command: ");
 		printf(W_B_RED "\"%s\"\n" RESET, argv[1]);
 		printf("Try with:\n\t·julia\n\t·mandelbrot\n");
-		//	exit(1);
+		exit(1);
 		//FIXME: cambiar este exit por otra cosa en este y argc < 2 y tal
 	}
 	fractol->save_first = 1;
@@ -84,29 +84,7 @@ fractol->window = mlx_new_window(fractol->mlx, 100, 100, "SOPA");*/
 	mlx_loop_hook(cub->mlx, raycast, cub);
 */
 	//	mlx_loop(fractol->mlx); // change this for a while(1) loop
-/*
-	while (1)
-	{
-		if (getch() == '\033')
-		{			 // if the first value is esc
-			getch(); // skip the [
-			switch (getch())
-			{ // the real value
-			case 'A':
-				// code for arrow up
-				break;
-			case 'B':
-				// code for arrow down
-				break;
-			case 'C':
-				// code for arrow right
-				break;
-			case 'D':
-				// code for arrow left
-				break;
-			}
-		}
-	}*/
+
 }
 
 int main(int argc, char **argv)
