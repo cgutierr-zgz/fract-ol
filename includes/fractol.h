@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/31 14:14:33 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/31 15:08:44 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,6 @@
 
 # include "../mlx/mlx.h"
 # include "../libft/libft.h"
-
-// Identificators for the map
-# define MAP_IDENTIFICATORS " 012NSEW"
-
-/*
-** ' ' -> Espacio vacío
-** '0' -> Suelo/Techo
-** '1' -> Muros
-** '2' -> Sprites
-** '3' -> Objetos puntuación
-** '4' -> Teleport
-** NSEW-> Posicion y orientación jugador
-*/
 
 // Buttons
 # define K_ESC		53
@@ -109,14 +96,6 @@
 ** # define OWNER_GRAB_BUTTON_MASK		(1L<<24)
 */
 
-typedef struct s_sprite
-{
-	double	x;
-	double	y;
-	int		texture;
-	double	dist;
-}	t_sprite;
-
 typedef struct s_mov
 {
 	int				left;
@@ -132,62 +111,6 @@ typedef struct s_mov
 	unsigned int	delay;
 }	t_mov;
 
-typedef struct s_rc_sprites
-{
-	double	spritex;
-	double	spritey;
-	double	invdet;
-	double	transformx;
-	double	transformy;
-	int		spr_screenx;
-	int		spr_height;
-	int		drawstarty;
-	int		drawendy;
-	int		spriteWidth;
-	int		drawstartx;
-	int		drawendx;
-	int		stripe;
-	int		texx;
-	int		texy;
-}	t_rc_sprites;
-
-typedef struct s_data {
-	double	camerax;
-	double	raydirx;
-	double	raydiry;
-	double	sidedistx;
-	double	sidedisty;
-	double	deltadistx;
-	double	deltaDistY;
-	double	perpwalldist;
-	double	wallx;
-	double	step;
-	double	texpos;
-	double	*zbuffer;
-	int		mapx;
-	int		mapy;
-	int		stepx;
-	int		stepy;
-	int		hit;
-	int		side;
-	int		drawstart;
-	int		drawend;
-	int		color;
-	int		lineheight;
-	int		texnum;
-	int		texx;
-	int		texy;
-}	t_data;
-
-typedef struct s_raycast {
-	double	posx;
-	double	posy;
-	double	dirx;
-	double	diry;
-	double	planex;
-	double	planey;
-}	t_raycast;
-
 typedef struct s_img {
 	void	*img;
 	char	*addr;
@@ -195,16 +118,6 @@ typedef struct s_img {
 	int		line_l;
 	int		endian;
 }	t_img;
-
-typedef struct s_mlx_txt
-{
-	t_img		img[5];
-	t_img		main_img;
-	int			num_sprites;
-	int			width[5];
-	int			height[5];
-	t_list		*sprite_list;
-}	t_mlx_txt;
 
 typedef struct s_rgb
 {
@@ -220,83 +133,15 @@ typedef struct s_xy
 	int	y;
 }	t_xy;
 
-typedef struct s_map
-{
-	t_list	*map_list;
-	t_xy	player_pos;
-	char	**map_matrix;
-	char	player_o;
-	int		matrix_mall;
-	int		matrix_act;
-	int		map_lines;
-	int		max_len;
-	int		has_content;
-	int		map_ko;
-}	t_map;
-
-typedef struct s_map_details
-{
-	char	*no_txt;
-	int		no_fd;
-	char	*so_txt;
-	int		so_fd;
-	char	*we_txt;
-	int		we_fd;
-	char	*ea_txt;
-	int		ea_fd;
-	char	*s_txt;
-	int		s_fd;
-	t_rgb	ceiling;
-	t_rgb	floor;
-}	t_map_details;
-
-/*
-** MAIN STRUCT
-**
-** fd -> fd of the .cub file
-** save_first	-> option to start cub3D or take a screenshot as .bmp
-** map			-> struct containing the info of the map
-** map_d		-> struct containing the details of the map
-** elems		-> int where we store the data already added(Resolution, etc...)
-** screen		-> struct containing withd/height of the screen
-** actual_line	-> a counter used to display error messages
-** is_map		-> an int used to check if the reading has ended
-** end_map		-> an int to end the reading of the map
-** mlx			-> pointer to initialize mlx
-** window		-> pointer to the window created with mlx
-** txtrs		-> every single texture stored and its info
-** raycast		-> all the info needed for the algorythm
-** mov			-> everything move related
-*/
-
-// Info for the map
-# define R	0x001 // 1		00000001
-# define NO	0x002 // 2		00000010
-# define SO	0x004 // 4		00000100
-# define EA	0x008 // 8		00001000
-# define WE	0x010 // 16		00010000
-# define S	0x020 // 32		00100000
-# define F	0x040 // 64		01000000
-# define C	0x080 // 128	10000000
-
 typedef struct s_fractol
 {
-	int				fd;
+	t_img			main_img;
+	int				order;
 	int				save_first;
-	t_map			map;
-	t_map_details	map_d;
-	int				elems;
 	t_xy			screen;
-	int				actual_line;
-	int				is_map;
-	int				end_map;
 	void			*mlx;
 	void			*window;
-	t_mlx_txt		txtrs;
-	t_raycast		raycast;
 	t_mov			mov;
-	t_data			data;
-	t_rc_sprites	rc_spr;
 }	t_fractol;
 
 // All functions from src, ordered by type and length
