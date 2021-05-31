@@ -1,0 +1,113 @@
+  ___  ____  __ __ __  __ ______  ____  __ 
+ // \\ || \\ || || ||\ || | || | ||    (( \
+ ||=|| ||_// || || ||\\||   ||   ||==   \\ 
+ || || ||    \\_// || \||   ||   ||___ \_))
+                                           
+   ___    _   _    ___     ____    ___   
+  / __|  | | | |  | _ )   |__ /   |   \  
+ | (__   | |_| |  | _ \    |_ \   | |) | 
+  \___|   \___/   |___/   |___/   |___/  
+_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| 
+"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
+
+·Nombre del programa	= cub3D
+·Makefile rules			= all, clean, fclean, re, bonus
+
+	**ARGUMENTOS DE EJECUCIÓN**
+
+	1			2			3
+"./cub3D"	"___.cub"	"--save"
+	^			^			^
+	|			|			|
+Ejecutable	   Mapa		Opcional
+
+./cub3D ___.cub --save	= Guarda el primer fotograma en .bmp en la resolución que sea
+./cub3D ___.cub3D		= Inicia el programa con el mapa seleccionado, ajustando la resolución a la pantalla si esta se pasa
+
+	**FUNCIONES PERMITIDAS**
+·open, close, read, write, malloc, free, perror, strerror, exit
+·LIBFT		(Se puede añadir cualquier función)
+·MATH		(man 3 math)
+·MINILIBX	(man /usr/share/man/man3/mlx.1)
+
+	**GESTIÓN DE LA VENTANA**
+Se debe poder:
+·Minimizar (¿Reescalar?)
+·Pasar de una ventana a otra
+·Cerrar limpiamente
+·Si la ventana es más grande que la pantalla esta deberá ajustarse
+
+	**CONTROLES OBLIGATORIOS**
+·◄(Izquierda) y ►(Derecha)	= Deberá permitir rotar la cámara
+·WASD						= Deberá permitir que se desplace la cámara
+·ESC y X(Ventana)			= Deberá permitir cerrar la ventana y salir
+								del programa de forma limpia.
+
+	**INFO DEL MAPA**
+·' '		= Espacio(Lo gestionamos como queramos)
+·0			= Vacío(Suelo/Suelo+techo)
+·1			= Muros
+·2			= Objeto(Sprite)
+·N/S/E/W	= Posición inicial del jugador y orientación
+
+·El mapa deberá estar rodeado por muros (1)
+·El mapa siempre debe estar al final del archivo, seguido por una cantidad
+	indefinida de saltos de línea, pero sin más contenido después
+·El resto de contenido del mapa puede ir en cualquier orden
+
+R	= Resolución de pantalla(Eje x, eje y)
+NO	= Textura del Norte(Path)
+SO	= Textura del Sur(Path)
+WE	= Textura del Oeste(Path)
+EA	= Textura del Este(Path)
+S	= Textura del sprite(Path)
+F	= Color de suelo(r,g,b) - Rango [0,255]
+C	= Color de techo(r,g,b) - Rango [0,255]
+
+Si surge cualquier problema de configuración en el archivo, el programa tendrá
+que devolver “Error\n” seguido de un mensaje explícito que Ud. elegirá.
+
+	**BONUS MENCIONADOS**
+01• Colisión contra los muros. ✔												Colisiona correctamente contra los muros '1'
+02• Una skybox.
+03• Textura sobre el suelo o el techo. ✔										Texturas correctamente colocadas
+04• Un HUD. ✔ 																	Crosshair, barra de vida, info enemigos
+05• Posibilidad de mirar hacia arriba y hacia abajo.
+06• Saltar o agacharse.
+07• Un efecto de sombra basado en la distancia.
+08• Una barra de vida. ✔														Cuento con un sistema de vidas, al igual que su contador
+09• Más objetos en el laberinto. ✔												Hay más objetos: Enemigos, corazones y telepor
+10• Colisión con los objetos. ✔													Hay colisión con los sprites '2', el resto soy interactuables
+11• Ganancia/pérdida de puntos de vida al toparse con objetos/trampas. ✔		Los enemigos te hacen daño y se mueren y los corazones te curan y desaparecen
+12• Puertas que pueden estar abiertas/cerradas.
+13• Puertas secretas. ✔															Se pueden creer muros invisibles que podrían contar como puertas secretas con Enter, a discreción del corrector
+14• Animaciones (disparos o sprites animados). ✔								El sprite del teleport cuenta con una pequeña animación
+15• Varios niveles. ✔															El juego cuenta con un sistema de teleports, lo cual te deja acceder a distintas islas del mapa, lo que podría o no considerarse un nivel extra.
+16• Sonido y música. ✔															Hay sonidos cuando: Te hieres, te curas o matas a un enemigo
+17• ¡Armas y malos con los que pelear!. ✔ 										Puedes matar a los enemigos con Enter, se usa una chancla con animación y el enemigo se queda en el suelo muerto
+
+	TOTAL: 12/17
+
+	**PROPIOS**
+18• Rotación con ratón. ✔														Al mover el ratón puedes girar la pantalla, pero si lo dejas quieto no se mueve
+19• L-Shift para correr. ✔														Puedes correr al pusar el L-Shift
+20• Crosshair. ✔																Pequeña mirilla para indicar la dirección del jugador, puesto que oculto el ratón
+21• Teleport. ✔																	Dado que en mis mapas acepto islas, el jugador puede usar el teleport para moverse entre ellas.
+22• Efecto pantalla daño. ✔														Al recibir daño se cambia el efecto de renderizado de la pantalla
+23• Multi hilo. ✔																Se han usado multiples hilos para poder realizar los sonidos sin colapsar el programa
+24• Has ganado/perdido. ✔														Al matar a todos los enemigos el programa te informa, pero puedes seguir jugando, pero al morir el programa te informa y sale limpiamente
+25• Posibilidades de quitar/poner bloques. ✔					 				Se pueden crear "puertas" invisibles/Secretas con la barra espaciadora
+26• Sprite enemigos al morir. ✔													Los enemigos aparecen muertos en lugar de desaparecer
+
+	TOTAL: 9/9
+
+El recuento de bonus queda a discreción de cada corrector, muchos de los propios son cosas muy tontas.
+
+	TOTAL: 21/26
+
+	**CONTROLES**
+WASD	-> Movimiento
+◄ ►		-> Rotación Izq. Dcha.
+Enter	-> Matar enemigos
+Espacio -> Crear paredes/Puertas secretas
+E		-> Entrar en teleport
