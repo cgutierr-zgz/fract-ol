@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/01 00:44:14 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/01 00:47:22 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ fflush(stdout);
 		cub->mov.mov_s *= 2;*/
 	return (keycode);
 }
-
+  //     #include <curses.h>
 
 static void	good_args(char **argv, t_fractol *fractol)
 {
@@ -83,11 +83,30 @@ static void	good_args(char **argv, t_fractol *fractol)
 fractol->window = mlx_new_window(fractol->mlx, 100, 100, "SOPA");
 
 
-	mlx_hook(fractol->window, KEY_PRESS, 1L << 0, keys, fractol);
+//	mlx_hook(fractol->window, KEY_PRESS, 1L << 0, keys, fractol);
 	/*mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, cub);
 	mlx_hook(fractol->window, KEY_RELEASE, 1L << 1, key_release, cub);
 	mlx_loop_hook(cub->mlx, raycast, cub);
-*/	mlx_loop(fractol->mlx); // change this for a while(1) loop
+*///	mlx_loop(fractol->mlx); // change this for a while(1) loop
+/*
+if (getch() == '\033') { // if the first value is esc
+    getch(); // skip the [
+    switch(getch()) { // the real value
+        case 'A':
+            // code for arrow up
+            break;
+        case 'B':
+            // code for arrow down
+            break;
+        case 'C':
+            // code for arrow right
+            break;
+        case 'D':
+            // code for arrow left
+            break;
+    }
+}*/
+
 }
 
 int	main(int argc, char **argv)
