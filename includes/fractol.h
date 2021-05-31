@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/31 13:08:37 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/31 14:14:33 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -279,7 +279,7 @@ typedef struct s_map_details
 # define F	0x040 // 64		01000000
 # define C	0x080 // 128	10000000
 
-typedef struct s_cub
+typedef struct s_fractol
 {
 	int				fd;
 	int				save_first;
@@ -297,72 +297,72 @@ typedef struct s_cub
 	t_mov			mov;
 	t_data			data;
 	t_rc_sprites	rc_spr;
-}	t_cub;
+}	t_fractol;
 
 // All functions from src, ordered by type and length
 int		get_t(int trgb);
 int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
-int		raycast(t_cub *cub);
-int		destroy(t_cub *cub);
+int		raycast(t_fractol *fractol);
+int		destroy(t_fractol *fractol);
 int		open_texture(char *texture);
-int		keys(int keycode, t_cub *cub);
+int		keys(int keycode, t_fractol *fractol);
 int		set_bit(int value, int index);
 int		reset_bit(int value, int index);
 int		is_bit_set(int value, int bitindex);
-int		key_release(int keycode, t_cub *cub);
+int		key_release(int keycode, t_fractol *fractol);
 int		create_trgb(int t, int r, int g, int b);
 int		my_pixel_get(t_img *data, int x, int y);
 
-void	key_w(t_cub *cub);
-void	key_a(t_cub *cub);
-void	key_s(t_cub *cub);
-void	key_d(t_cub *cub);
-void	sprites(t_cub *cub);
-void	bmp_save(t_cub *cub);
-void	key_left(t_cub *cub);
-void	key_right(t_cub *cub);
-void	cub_tresd(t_cub *cub);
-void	close_fds(t_cub *cub);
+void	key_w(t_fractol *fractol);
+void	key_a(t_fractol *fractol);
+void	key_s(t_fractol *fractol);
+void	key_d(t_fractol *fractol);
+void	sprites(t_fractol *fractol);
+void	bmp_save(t_fractol *fractol);
+void	key_left(t_fractol *fractol);
+void	key_right(t_fractol *fractol);
+void	cub_tresd(t_fractol *fractol);
+void	close_fds(t_fractol *fractol);
 void	print_list(t_list *start);
 void	bubble_sort(t_list *start);
-void	start_graphics(t_cub *cub);
-void	check_textures(t_cub *cub);
-void	check_matrix_ok(t_cub *cub);
-void	free_content_cub(t_cub *cub);
-void	check_map_details(t_cub *cub);
-void	wallcasting(t_cub *cub, int x);
+void	start_graphics(t_fractol *fractol);
+void	check_textures(t_fractol *fractol);
+void	check_matrix_ok(t_fractol *fractol);
+void	free_content_fractol(t_fractol *fractol);
+void	check_map_details(t_fractol *fractol);
+void	wallcasting(t_fractol *fractol, int x);
 void	print_simple_errors(char *str);
-void	print_specificators(t_cub *cub);
-void	parse_map(char *line, t_cub *cub);
-void	rotate_x(t_cub *cub, double force);
-void	print_errors(t_cub *cub, char *str);
-void	free_content_map_matrix(t_cub *cub);
+void	print_specificators(t_fractol *fractol);
+void	parse_map(char *line, t_fractol *fractol);
+void	rotate_x(t_fractol *fractol, double force);
+void	print_errors(t_fractol *fractol, char *str);
+void	free_content_map_matrix(t_fractol *fractol);
 void	clear_matrix_content(void *content);
-void	player_orientation_error(t_cub *cub);
-void	fill_sprites(t_cub *cub, void *content);
-void	draw_walls(t_cub *cub, int *draw, int x);
-void	fill_map_matrix(t_cub *cub, void *content);
+void	player_orientation_error(t_fractol *fractol);
+void	fill_sprites(t_fractol *fractol, void *content);
+void	draw_walls(t_fractol *fractol, int *draw, int x);
+void	fill_map_matrix(t_fractol *fractol, void *content);
 void	add_spaces_c_f(int n_words, char **content);
-void	parse_specificators(t_cub *cub, char *line);
-void	aux(t_cub *cub, char **content, int n_words);
-void	calcular_distancia(t_cub *cub, void *content);
+void	parse_specificators(t_fractol *fractol, char *line);
+void	aux(t_fractol *fractol, char **content, int n_words);
+void	calcular_distancia(t_fractol *fractol, void *content);
 void	free_content_array(char **content, int n_words);
 void	my_pixel_put(t_img *img, int x, int y, int color);
-void	handle_map_r(t_cub *cub, char **content, int n_words);
-void	handle_map_s(t_cub *cub, char **content, int n_words);
-void	handle_map_f(t_cub *cub, char **content, int n_words);
-void	handle_map_c(t_cub *cub, char **content, int n_words);
-void	handle_map_no(t_cub *cub, char **content, int n_words);
-void	handle_map_so(t_cub *cub, char **content, int n_words);
-void	handle_map_we(t_cub *cub, char **content, int n_words);
-void	handle_map_ea(t_cub *cub, char **content, int n_words);
-void	handle_map_c_aux1(t_cub *cub, char **content, int n_words);
-void	handle_map_f_aux1(t_cub *cub, char **content, int n_words);
-void	check_commas(char **content, int n_words, t_cub *cub, int x);
-void	handle_content_else(t_cub *cub, int n_words, char **content);
-void	iter_cub_list(t_cub *cub, t_list *lst, void (*f)(t_cub *, void *));
-void	iter_sprite_list(t_cub *cub, t_list *lst, void (*f)(t_cub *, void *));
+void	handle_map_r(t_fractol *fractol, char **content, int n_words);
+void	handle_map_s(t_fractol *fractol, char **content, int n_words);
+void	handle_map_f(t_fractol *fractol, char **content, int n_words);
+void	handle_map_c(t_fractol *fractol, char **content, int n_words);
+void	handle_map_no(t_fractol *fractol, char **content, int n_words);
+void	handle_map_so(t_fractol *fractol, char **content, int n_words);
+void	handle_map_we(t_fractol *fractol, char **content, int n_words);
+void	handle_map_ea(t_fractol *fractol, char **content, int n_words);
+void	handle_map_c_aux1(t_fractol *fractol, char **content, int n_words);
+void	handle_map_f_aux1(t_fractol *fractol, char **content, int n_words);
+void	check_commas(char **content, int n_words, t_fractol *fractol, int x);
+void	handle_content_else(t_fractol *fractol, int n_words, char **content);
+void	iter_cub_list(t_fractol *fractol, t_list *lst, void (*f)(t_fractol *, void *));
+void	iter_sprite_list(t_fractol *fractol, t_list *lst, void (*f)(t_fractol *, void *));
 
 #endif
