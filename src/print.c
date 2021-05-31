@@ -6,13 +6,13 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 19:47:07 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/31 13:14:15 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/01 00:20:40 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-static void	print_map(t_cub *cub, int i)
+/*
+static void	print_map(t_fractol *cub, int i)
 {
 	int	z;
 	int	z2;
@@ -81,11 +81,11 @@ void	print_specificators(t_cub *cub)
 	print_map_info(cub);
 }
 
-void	print_errors(t_cub *cub, char *str)
+void	print_errors(t_fractol *cub, char *str)
 {
 	printf("Error\n(Line %d): ", cub->actual_line);
 	printf(W_B_RED "%s\n" RESET, str);
-}
+}*/
 
 void	print_simple_errors(char *str)
 {
