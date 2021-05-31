@@ -6,23 +6,34 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/01 00:28:12 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/01 00:44:14 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+int destroy(t_fractol *cub)
+{
 
+	int x = cub->save_first;
+	x++;
+	exit(1);
+}
 
 
 int	keys(int keycode, t_fractol *cub)
 {
 	int x = cub->save_first;
 	x++;
-	//if (keycode == K_ESC)
-	//	destroy(cub);
+	if (keycode == K_ESC)
+		destroy(cub);
+		printf("\rbye\n");//cub->mov.up = 1;
+fflush(stdout);
 	if (keycode == K_W)
-		printf("\r");//cub->mov.up = 1;
+	{
+
+	
+		}
 	/*if (keycode == K_A)
 		cub->mov.left = 1;
 	if (keycode == K_S)
@@ -46,7 +57,7 @@ static void	good_args(char **argv, t_fractol *fractol)
 		printf("Error\nUnknown command: ");
 		printf(W_B_RED "\"%s\"\n" RESET, argv[1]);
 		printf("Try with:\n\t·julia\n\t·mandelbrot\n");
-		exit(1);
+	//	exit(1);
 //FIXME: cambiar este exit por otra cosa en este y argc < 2 y tal
 	}
 	fractol->save_first = 1;
@@ -76,7 +87,7 @@ fractol->window = mlx_new_window(fractol->mlx, 100, 100, "SOPA");
 	/*mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, cub);
 	mlx_hook(fractol->window, KEY_RELEASE, 1L << 1, key_release, cub);
 	mlx_loop_hook(cub->mlx, raycast, cub);
-*/	mlx_loop(fractol->mlx);
+*/	mlx_loop(fractol->mlx); // change this for a while(1) loop
 }
 
 int	main(int argc, char **argv)
