@@ -11,3 +11,4 @@ libmlx.dylib
 libmlx.dylib
 *.swiftdoc
 *.swiftmodule
+.vscode
