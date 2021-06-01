@@ -6,19 +6,19 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/01 17:23:43 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/01 21:04:55 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-int destroy(t_fractol *cub)
+int	destroy(t_fractol *cub)
 {
 	int x = cub->julia;
 	x++;
 	exit(1);
 }
 
-int keys(int keycode, t_fractol *cub)
+int	keys(int keycode, t_fractol *cub)
 {
 	if (keycode == K_ESC)
 		destroy(cub);
@@ -42,7 +42,7 @@ int keys(int keycode, t_fractol *cub)
 	return (keycode);
 }
 
-static void good_args(char **argv, t_fractol *fractol)
+static void	good_args(char **argv, t_fractol *fractol)
 {
 	if (!ft_strcmp("julia", argv[1]) && !ft_strcmp("mandelbrot", argv[1]))
 	{
@@ -95,9 +95,9 @@ static void good_args(char **argv, t_fractol *fractol)
 	mlx_loop(fractol->mlx);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_fractol fractol;
+	t_fractol	fractol;
 
 	ft_bzero(&fractol, sizeof(t_fractol));
 	if (argc < 2)
