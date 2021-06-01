@@ -6,15 +6,15 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/01 10:18:04 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/01 17:23:43 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 int destroy(t_fractol *cub)
 {
-int x = cub->julia;
-x++;
+	int x = cub->julia;
+	x++;
 	exit(1);
 }
 
@@ -47,8 +47,9 @@ static void good_args(char **argv, t_fractol *fractol)
 	if (!ft_strcmp("julia", argv[1]) && !ft_strcmp("mandelbrot", argv[1]))
 	{
 		printf("Error\nUnknown command: ");
-		printf(W_B_RED "\"%s\"\n" RESET, argv[1]);
+		printf("\"%s\"\n", argv[1]);
 		printf("Try with:\n\t·julia\n\t·mandelbrot\n");
+		//FIXME: change this tosingle line && add exit
 		exit(1);
 	}
 	if (ft_strcmp("julia", argv[1]))
@@ -87,8 +88,8 @@ static void good_args(char **argv, t_fractol *fractol)
 	// FIXME: 45 55.. etcc
 	fractol->window = mlx_new_window(fractol->mlx, fractol->screen.x, fractol->screen.y - 55, "fract-ol");
 
-		mlx_hook(fractol->window, KEY_PRESS, 1L << 0, keys, fractol);
-		mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, fractol);
+	mlx_hook(fractol->window, KEY_PRESS, 1L << 0, keys, fractol);
+	mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, fractol);
 	//	mlx_hook(fractol->window, KEY_RELEASE, 1L << 1, key_release, cub);
 
 	mlx_loop(fractol->mlx);
