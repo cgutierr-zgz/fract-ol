@@ -6,39 +6,39 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 12:05:58 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 13:51:42 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-int destroy(t_fractol *cub)
+int destroy(t_fractol *fractol)
 {
-	int x = cub->julia;
+	int x = fractol->julia;
 	x++;
 	exit(1);
 }
 
-int keys(int keycode, t_fractol *cub)
+int keys(int keycode, t_fractol *fractol)
 {
 	if (keycode == K_ESC)
-		destroy(cub);
-	//printf("\rbye\n"); //cub->mov.up = 1;
+		destroy(fractol);
+	//printf("\rbye\n"); //fractol->mov.up = 1;
 	//fflush(stdout);
 	if (keycode == K_W)
 	{
 	}
 	if (keycode == K_A)
-		cub->mov.left = 1;
+		fractol->mov.left = 1;
 	if (keycode == K_S)
-		cub->mov.down = 1;
+		fractol->mov.down = 1;
 	if (keycode == K_D)
-		cub->mov.right = 1;
+		fractol->mov.right = 1;
 	if (keycode == K_LEFT)
-		cub->mov.rotate_left = 1;
+		fractol->mov.rotate_left = 1;
 	if (keycode == K_RIGHT)
-		cub->mov.rotate_right = 1;
+		fractol->mov.rotate_right = 1;
 	else if (keycode == L_SHIFT)
-		cub->mov.mov_s *= 2;
+		fractol->mov.mov_s *= 2;
 	return (keycode);
 }
 
@@ -87,24 +87,20 @@ static void good_args(char **argv, t_fractol *fractol)
 
 	// FIXME: 45 55.. etcc
 	fractol->window = mlx_new_window(fractol->mlx, fractol->screen.x, fractol->screen.y - 55, "fract-ol");
-// if ! window???
-
+	// if ! window???
 
 	fractol->main_img.img = mlx_new_image(fractol->mlx,
-			fractol->screen.x, fractol->screen.y);
+										  fractol->screen.x, fractol->screen.y);
 	fractol->main_img.addr = mlx_get_data_addr(fractol->main_img.img,
-			&fractol->main_img.bpp, &fractol->main_img.line_l,
-			&fractol->main_img.endian);
-
-
-
-
+											   &fractol->main_img.bpp, &fractol->main_img.line_l,
+											   &fractol->main_img.endian);
 
 	mlx_hook(fractol->window, KEY_PRESS, 1L << 0, keys, fractol);
 	mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, fractol);
-	//	mlx_hook(fractol->window, KEY_RELEASE, 1L << 1, key_release, cub);
+	//	mlx_hook(fractol->window, KEY_RELEASE, 1L << 1, key_release, fractol);
 	mlx_loop_hook(fractol->mlx, mandelbrot, fractol);
-
+	//mandelbrot(fractol);
+	//	julia(fractol);
 	mlx_loop(fractol->mlx);
 }
 

@@ -6,24 +6,33 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 12:06:35 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:01:28 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+#include <math.h>
 #define MAXCOUNT 30
 // Function to draw mandelbrot set
-void fractal(float left, float top, float xside, float yside, t_fractol *fractol)
+void fractal(t_fractol *fractol)
 {
+
+	float left, top, xside, yside;
+
+	left = -1.75;
+	top = -0.25;
+	xside = 0.25;
+	yside = 0.45;
+
 	float xscale, yscale, zx, zy, cx, tempx, cy;
-	int x, y;// i, j;
+	int x, y; // i, j;
 	int maxx, maxy, count;
 
 	// getting maximum value of x-axis of screen
-	maxx = fractol->screen.x;//getmaxx();
+	maxx = fractol->screen.x; //getmaxx();
 
 	// getting maximum value of y-axis of screen
-	maxy = fractol->screen.y;//getmaxy();
+	maxy = fractol->screen.y; //getmaxy();
 
 	// setting up the xscale and yscale
 	xscale = xside / maxx;
@@ -31,7 +40,7 @@ void fractal(float left, float top, float xside, float yside, t_fractol *fractol
 
 	// calling rectangle function
 	// where required image will be seen
-	//rectangle(0, 0, maxx, maxy);
+	//rectangle(0, 0, maxx, maxy);//FIXME:
 
 	// scanning every point in that rectangular area.
 	// Each point represents a Complex number (x + yi).
@@ -78,7 +87,8 @@ void fractal(float left, float top, float xside, float yside, t_fractol *fractol
 			}
 
 			// To display the created fractal
-			my_pixel_put(&fractol->main_img, x, y, create_trgb(0, 255, 0, 0));
+			my_pixel_put(&fractol->main_img, x, y, rand());
+			//my_pixel_put(&fractol->main_img, x, y, create_trgb(0, 255, 55, 42));
 			//putpixel(x, y, count);
 		}
 	}
@@ -86,22 +96,38 @@ void fractal(float left, float top, float xside, float yside, t_fractol *fractol
 
 int mandelbrot(t_fractol *fractol)
 {
-	// gm is Graphics mode which is
-	// a computer display mode that
-	// generates image using pixels.
-	// DETECT is a macro defined in
-	// "graphics.h" header file
+	//fractal(fractol);
+	mlx_sync(MLX_SYNC_WIN_CMD_COMPLETED, fractol->window);
+	int A, B, i;
+	double a, b, x, y, t, n = 200;
+	int color_random = rand();
 
-	float left, top, xside, yside;
+	for (B = 0; B <= 4 * n; B++)
+	{
+		b = 2 - (B / n);
+		for (A = 0; A <= 4 * n; A++)
+		{
+			a = -2 + (A / n);
+			x = 0;
+			y = 0;
+			for (i = 1; i <= 1000; i++)
+			{
+				t = x;
 
-	// setting the left, top, xside and yside
-	// for the screen and image to be displayed
-	left = -1.75;
-	top = -0.25;
-	xside = 0.25;
-	yside = 0.45;
+				x = (x * x) - (y * y) + a;
+				y = (2 * t * y) + b;
+				if ((x * x) + (y * y) > 4)
+					break;
+			}
+			if (i == 1001)														//color_random - (A * B));
+				my_pixel_put(&fractol->main_img, A, B, color_random - (A * B)); //create_trgb(0, 255, 0, 0)); //	printf("."); //rand()); //
+			else
+				my_pixel_put(&fractol->main_img, A, B, create_trgb(0, 0, 0, 0)); //	printf(" "); //rand()); //
+																				 //	printf(" ");
+		}
+		//printf("\n");
+	}
 
-	// Function calling
-	fractal(left, top, xside, yside, fractol);
+	mlx_put_image_to_window(fractol->mlx, fractol->window, fractol->main_img.img, fractol->screen.x / 4, fractol->screen.y / 4);
 	return (0);
 }

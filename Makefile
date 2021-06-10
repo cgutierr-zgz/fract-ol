@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/10 12:06:54 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/10 12:33:01 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS		=	./src/main.c \
 				./src/print.c \
 				./src/draw.c \
 				./src/rgb.c \
-				./src/mandelbrot.c
+				./src/mandelbrot.c \
+				./src/julia.c
 
 SRCS_B		=	./src_bonus/main_bonus.c
 
@@ -32,7 +33,7 @@ OBJS_B			=	$(SRCS_B:.c=.o)
 
 CC				=	gcc
 
-CFLAGS			=	-Wall -Werror -Wextra -O3 -g3 -fsanitize=address
+CFLAGS			=	#-Wall -Werror -Wextra -O3 -g3 -fsanitize=address
 
 MLXFLAGS		=	libmlx.dylib -framework Metal -framework AppKit
 
