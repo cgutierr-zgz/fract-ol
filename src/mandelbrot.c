@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 22:04:15 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 22:57:20 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ static void	mandelkeys(t_fractol *fractol)
 	}
 	if (fractol->mdlbr.less_iter)
 	{
-		if (fractol->mdlbr.maxIterations > 2)
-			fractol->mdlbr.maxIterations /= 2;
+		if (fractol->mdlbr.maxIterations > 4)
+			fractol->mdlbr.maxIterations -= 4;
 	}
 	mandlemove(fractol);
 }
@@ -104,6 +104,8 @@ int	mandelbrot(t_fractol *fractol)
 			r = ((255 - g) * 0.60) * fabs(cos(fractol->mdlbr.random));
 			b = ((255 - g) * 0.2) * fabs(sin(fractol->mdlbr.random_two));
 			fractol->mdlbr.color = create_trgb(0, r * fractol->mdlbr.random, g, b);
+			
+      //color = HSVtoRGB(ColorHSV(i % 256, 255, 255 * (i < maxIterations)));
 			if (g == 255)
 				fractol->mdlbr.color = create_trgb(0,  0, 0, 0);
 			my_pixel_put(&fractol->main_img, x, y, fractol->mdlbr.color);

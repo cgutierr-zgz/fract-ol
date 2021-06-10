@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
+#    By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/10 18:48:56 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/10 22:57:26 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ OBJS_B			=	$(SRCS_B:.c=.o)
 
 CC				=	gcc
 
-CFLAGS			=	#-Wall -Werror -Wextra -O3 -g3 -fsanitize=address
+CFLAGS			=	-Wall -Werror -Wextra -O3 -g3 -fsanitize=address
 
 MLXFLAGS		=	libmlx.dylib -framework Metal -framework AppKit
 
