@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 23:36:04 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 01:27:21 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,23 @@ static void	maindelbrot(t_fractol *fractol, int *x, int *y, int *i)
 	}
 }
 
+//int random = (rand() % (10 - 3 + 1) + 3);
+//color = HSVtoRGB(ColorHSV(i % 256, 255, 255 * (i < maxIterations)));
+
+static void	set_color(t_fractol *fractol, int *i)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	g = (int)(255 * ((double)*i / (double)fractol->mdlbr.maxIterations));
+	r = ((255 - g) * 0.60) * fabs(cos(fractol->mdlbr.random));
+	b = ((255 - g) * 0.2) * fabs(sin(fractol->mdlbr.random_two));
+	fractol->mdlbr.color = create_trgb(0, r * fractol->mdlbr.random, g, b);
+	if (g == 255)
+		fractol->mdlbr.color = create_trgb(0, 0, 0, 0);
+}
+
 int	mandelbrot(t_fractol *fractol)
 {
 	int	y;
@@ -87,7 +104,6 @@ int	mandelbrot(t_fractol *fractol)
 	int	i;
 
 	y = 0;
-	//int random = (rand() % (10 - 3 + 1) + 3);
 	fractol->mdlbr.random += 0.025;
 	fractol->mdlbr.random_two += 0.01;
 	mlx_sync(MLX_SYNC_WIN_CMD_COMPLETED, fractol->window);
@@ -97,17 +113,7 @@ int	mandelbrot(t_fractol *fractol)
 		while (x < fractol->screen.x)
 		{
 			maindelbrot(fractol, &x, &y, &i);
-		
-			int	r, g, b;
-
-			g = (int)(255 * ((double)i / (double)fractol->mdlbr.maxIterations));
-			r = ((255 - g) * 0.60) * fabs(cos(fractol->mdlbr.random));
-			b = ((255 - g) * 0.2) * fabs(sin(fractol->mdlbr.random_two));
-			fractol->mdlbr.color = create_trgb(0, r * fractol->mdlbr.random, g, b);
-			
-      //color = HSVtoRGB(ColorHSV(i % 256, 255, 255 * (i < maxIterations)));
-			if (g == 255)
-				fractol->mdlbr.color = create_trgb(0,  0, 0, 0);
+			set_color(fractol, &i);
 			my_pixel_put(&fractol->main_img, x, y, fractol->mdlbr.color);
 			x++;
 		}
