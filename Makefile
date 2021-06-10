@@ -6,10 +6,11 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/10 12:33:01 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/10 18:48:56 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#https://lodev.org/cgtutor/juliamandelbrot.html
 DAY			=	$(shell date +'%d/%m/%Y %H:%M')
 
 NAME		=	fractol
@@ -22,6 +23,7 @@ SRCS		=	./src/main.c \
 				./src/print.c \
 				./src/draw.c \
 				./src/rgb.c \
+				./src/keys.c \
 				./src/mandelbrot.c \
 				./src/julia.c
 

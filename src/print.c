@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 19:47:07 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/01 17:23:29 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 18:25:47 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,10 @@ void	print_errors(t_fractol *cub, char *str)
 	printf(W_B_RED "%s\n" RESET, str);
 }*/
 
-void	print_simple_errors(char *str)
+void print_simple_errors(char *str)
 {
 	printf("Error\n");
 	printf("%s\n", str);
+	exit(1);
 }
 //FIXME: change this tosingle line

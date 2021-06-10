@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 09:38:01 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/04/26 18:15:04 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 18:25:16 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	bmp_save(t_cub *cub)
 	int		bpp;
 
 	bpp = cub->txtrs.main_img.bpp / 8;
-	fd = open("./resources/exports/save.bmp",
+	fd = open("./save.bmp",
 			O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0777);
 	write_headder(fd, cub);
 	y = cub->screen.y - 1;
@@ -111,7 +111,7 @@ void	bmp_save(t_cub *cub)
 		y--;
 	}
 	close(fd);
-	printf("\nFile saved to \"./resources/exports/save.bmp\"");
+	printf("\nFile saved to \"./save.bmp\"");
 	destroy(cub);
 }
 
