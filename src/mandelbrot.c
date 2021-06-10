@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 20:46:36 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:49:27 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	mandelbrot(t_fractol *fractol)
 		while (x < fractol->screen.x)
 		{
 			maindelbrot(fractol, &x, &y, &i);
-			fractol->mdlbr.color = create_trgb(0, i % 256, 255, 255
+			fractol->mdlbr.color = create_trgb(0* (i < fractol->mdlbr.maxIterations), 125* (i < fractol->mdlbr.maxIterations), 125* (i < fractol->mdlbr.maxIterations), 125
 					* (i < fractol->mdlbr.maxIterations));
 			my_pixel_put(&fractol->main_img, x, y, fractol->mdlbr.color);
 			x++;
