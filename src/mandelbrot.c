@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 01:27:21 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 01:33:10 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,8 @@ int	mandelbrot(t_fractol *fractol)
 	int	i;
 
 	y = 0;
-	fractol->mdlbr.random += 0.025;
-	fractol->mdlbr.random_two += 0.01;
+	fractol->mdlbr.random += 0.01;
+	fractol->mdlbr.random_two += 0.025;
 	mlx_sync(MLX_SYNC_WIN_CMD_COMPLETED, fractol->window);
 	while (y < fractol->screen.y)
 	{
