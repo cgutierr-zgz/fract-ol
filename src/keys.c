@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 19:50:09 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 21:10:20 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int destroy(t_fractol *fractol)
 {
 	int x = fractol->julia;
 	x++;
-	exit(1);
+	exit(0);
 }
 
 static void handle_keys_mandelbrot(int keycode, t_fractol *fractol)
@@ -70,9 +70,12 @@ int keys_release(int keycode, t_fractol *fractol)
 
 int mouse_hook(int keycode, int x, int y, t_fractol *fractol)
 {
-	if (keycode == SCROLL_UP)
-		fractol->mdlbr.zoom_out = 1;
-	if (keycode == SCROLL_DOWN && fractol->mdlbr.zoom > 0.1)
-		fractol->mdlbr.zoom_in = 1;
+	if (fractol->mdlbr.selected)
+	{
+		if (keycode == SCROLL_UP)
+			fractol->mdlbr.zoom_out = 1;
+		if (keycode == SCROLL_DOWN && fractol->mdlbr.zoom > 0.1)
+			fractol->mdlbr.zoom_in = 1;
+	}
 	return (0);
 }

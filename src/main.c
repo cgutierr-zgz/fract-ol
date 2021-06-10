@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 20:10:35 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 21:10:25 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ static void good_args(char **argv, t_fractol *fractol)
 	fractol->mdlbr.zoom = 1;
 	fractol->mdlbr.moveX = -0.5;
 	fractol->mdlbr.moveY = 0;
-	fractol->mdlbr.maxIterations = 10;//128;
+	fractol->mdlbr.maxIterations = 24;
 
 	mlx_hook(fractol->window, KEY_PRESS, 1L << 0, keys, fractol);
 	mlx_hook(fractol->window, KEY_RELEASE, 1L << 0, keys_release, fractol);
 	mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, fractol);
-	mlx_mouse_hook(fractol->window,mouse_hook, fractol);
+	mlx_mouse_hook(fractol->window, mouse_hook, fractol);
 	mlx_loop_hook(fractol->mlx, mandelbrot, fractol);
 	mlx_loop(fractol->mlx);
 }

@@ -6,13 +6,13 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 20:49:27 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 21:48:16 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-#define FRAME_TIME 60.0
+#define FRAME_TIME 120.0
 
 static void	mandlemove(t_fractol *fractol)
 {
@@ -87,6 +87,9 @@ int	mandelbrot(t_fractol *fractol)
 	int	i;
 
 	y = 0;
+	//int random = (rand() % (10 - 3 + 1) + 3);
+	fractol->mdlbr.random += 0.025;
+	fractol->mdlbr.random_two += 0.01;
 	mlx_sync(MLX_SYNC_WIN_CMD_COMPLETED, fractol->window);
 	while (y < fractol->screen.y)
 	{
@@ -94,8 +97,15 @@ int	mandelbrot(t_fractol *fractol)
 		while (x < fractol->screen.x)
 		{
 			maindelbrot(fractol, &x, &y, &i);
-			fractol->mdlbr.color = create_trgb(0* (i < fractol->mdlbr.maxIterations), 125* (i < fractol->mdlbr.maxIterations), 125* (i < fractol->mdlbr.maxIterations), 125
-					* (i < fractol->mdlbr.maxIterations));
+		
+			int	r, g, b;
+
+			g = (int)(255 * ((double)i / (double)fractol->mdlbr.maxIterations));
+			r = ((255 - g) * 0.60) * fabs(cos(fractol->mdlbr.random));
+			b = ((255 - g) * 0.2) * fabs(sin(fractol->mdlbr.random_two));
+			fractol->mdlbr.color = create_trgb(0, r * fabs(asin(fractol->mdlbr.random)), g, b);
+			if (g == 255)
+				fractol->mdlbr.color = create_trgb(0,  0, 0, 0);
 			my_pixel_put(&fractol->main_img, x, y, fractol->mdlbr.color);
 			x++;
 		}

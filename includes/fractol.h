@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 19:49:57 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 21:46:03 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,8 @@ typedef struct s_mandelbrot
 	double moveX;
 	double moveY;
 	int color;
+	double random;
+	double random_two;
 	int maxIterations;
 	int selected;
 
