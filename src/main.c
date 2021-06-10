@@ -3,41 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 22:02:58 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 01:53:47 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
 /*
-	Minilibx+window
-	Handle events (Hooks+loop)
-	Teclas -> Esc, mover, zooms, etc...
-	Pintar
-	Cerrar
 	IDEAS BONUS:
 	• Un fractal diferente más.
 	• El zoom sigue la posición actual del ratón.
 	• Adicionalmente al zoom: moverse con flechas.
 	• Haz que el rango de color cambie.
-	// save?
-	
-	*/
+	// save? TODO: regla bonus
+	· cambiar iteraciones + -
+	· cambiar formas x y z julia
+*/
 
 static void good_args(char **argv, t_fractol *fractol)
 {
 	if (!ft_strcmp("julia", argv[1]) && !ft_strcmp("mandelbrot", argv[1]))
 	{
-		printf("Error\nUnknown command: ");
-		printf("\"%s\"\n", argv[1]);
-		printf("Try with:\n\t·julia\n\t·mandelbrot\n");
+		printf("Error\nUnknown set: \"%s\""
+		"\nTry with:\n\t·julia\n\t·mandelbrot\n", argv[1]);
 		exit(1);
 	}
 	if (ft_strcmp("julia", argv[1]))
-		fractol->julia = 1;
+		fractol->julia.selected = 1;
 	if (ft_strcmp("mandelbrot", argv[1]))
 		fractol->mdlbr.selected = 1;
 	fractol->mlx = mlx_init();
@@ -57,6 +52,7 @@ static void good_args(char **argv, t_fractol *fractol)
 											   &fractol->main_img.bpp, &fractol->main_img.line_l,
 											   &fractol->main_img.endian);
 
+// TODO: Mover esto a otro lado
 	fractol->mdlbr.zoom = 1;
 	fractol->mdlbr.moveX = -0.5;
 	fractol->mdlbr.moveY = 0;
@@ -66,20 +62,21 @@ static void good_args(char **argv, t_fractol *fractol)
 	mlx_hook(fractol->window, KEY_RELEASE, 1L << 0, keys_release, fractol);
 	mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, fractol);
 	mlx_mouse_hook(fractol->window, mouse_hook, fractol);
-	mlx_loop_hook(fractol->mlx, mandelbrot, fractol);
+	if(fractol->mdlbr.selected)
+		mlx_loop_hook(fractol->mlx, mandelbrot, fractol);
+	if(fractol->julia.selected)
+		mlx_loop_hook(fractol->mlx, julia, fractol);
 	mlx_loop(fractol->mlx);
 }
 
-// TODO: If > than 2 args check parse them for mandel or julia
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_fractol fractol;
+	t_fractol	fractol;
 
 	ft_bzero(&fractol, sizeof(t_fractol));
 	if (argc < 2)
-		print_simple_errors("A command is needed"
-							"\nTry with:\n\t·julia\n\t·mandelbrot\n");
+		print_simple_errors("A set is needed"
+			"\nTry with:\n\t·julia\n\t·mandelbrot");
 	if (argc == 2)
 	{
 		if (!(ft_strcmp("./fractol", argv[0]) || ft_strcmp("fractol", argv[0])))

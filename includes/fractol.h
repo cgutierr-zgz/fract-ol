@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 21:46:03 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 01:38:44 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,16 +168,20 @@ typedef struct s_mandelbrot
 	int less_iter;
 }	t_mandelbrot;
 
+typedef struct s_julia
+{
+	int selected;
+}	t_julia;
 typedef struct s_fractol
 {
 	t_img			main_img;
 	int				order;
-	int				julia;
 	t_xy			screen;
 	void			*mlx;
 	void			*window;
 	t_mov			mov;
 	t_mandelbrot	mdlbr;
+	t_julia			julia;
 }	t_fractol;
 
 // All functions from src, ordered by type and length
