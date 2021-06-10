@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/10 14:01:28 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:14:05 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,13 +119,11 @@ int mandelbrot(t_fractol *fractol)
 				if ((x * x) + (y * y) > 4)
 					break;
 			}
-			if (i == 1001)														//color_random - (A * B));
-				my_pixel_put(&fractol->main_img, A, B, color_random - (A * B)); //create_trgb(0, 255, 0, 0)); //	printf("."); //rand()); //
+			if (i == 1001) //color_random - (A * B));
+				my_pixel_put(&fractol->main_img, A, B, color_random - (A * B));
 			else
-				my_pixel_put(&fractol->main_img, A, B, create_trgb(0, 0, 0, 0)); //	printf(" "); //rand()); //
-																				 //	printf(" ");
+				my_pixel_put(&fractol->main_img, A, B, create_trgb(0, 0, 0, 0));
 		}
-		//printf("\n");
 	}
 
 	mlx_put_image_to_window(fractol->mlx, fractol->window, fractol->main_img.img, fractol->screen.x / 4, fractol->screen.y / 4);
