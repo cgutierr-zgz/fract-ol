@@ -6,11 +6,11 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:58:50 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/04/08 15:59:23 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 12:07:05 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub.h"
+#include "../includes/fractol.h"
 
 int	create_trgb(int t, int r, int g, int b)
 {

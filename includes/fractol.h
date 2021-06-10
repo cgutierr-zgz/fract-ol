@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/01 01:26:24 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/10 11:55:18 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,7 @@ int		get_t(int trgb);
 int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
+int		mandelbrot(t_fractol *cub);
 int		raycast(t_fractol *fractol);
 int		destroy(t_fractol *fractol);
 int		open_texture(char *texture);
