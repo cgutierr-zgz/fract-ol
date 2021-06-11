@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/11 02:20:34 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/11 03:13:23 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS		=	./src/main.c \
 				./src/keys.c \
 				./src/mandelbrot.c \
 				./src/julia.c \
-				./src/movement.c
+				./src/movement.c \
+				./src/utils.c
 
 SRCS_B		=	./src_bonus/main_bonus.c
 
@@ -48,39 +49,28 @@ MLXNAME			=	libmlx.dylib
 
 MINILIBX		=	$(MLX)$(MLXNAME)
 
-LIBFTPATH		=	./libft/
-
-LIBFTNAME		=	libft.a
-
-LIBFT			=	$(LIBFTPATH)$(LIBFTNAME)
-
 $(NAME):		$(OBJS) $(LIBFT) $(MINILIBX)
 				@echo $(YELLOW)Compiling ... $(RESET)
-				$(CC) ${CFLAGS} ${OBJS} -I $(HEADER_B) ${LIBFT} ${MLXFLAGS} $(MLXNAME) -o ${NAME}
+				$(CC) ${CFLAGS} ${OBJS} -I $(HEADER) ${MLXFLAGS} $(MLXNAME) -o ${NAME}
 
 $(MINILIBX):
 				@echo $(YELLOW)Make minilibx ... $(RESET)
 				make -C $(MLX)
 				cp $(MINILIBX) .
 
-$(LIBFT):		
-				@echo $(YELLOW)Make libft ... $(RESET)
-				make re -C $(LIBFTPATH)
-
 all:			$(NAME)
 
 clean:
 				@echo $(YELLOW)Cleaning ... $(RED)
-				$(RM) $(OBJS) $(OBJS_B) $(LIBFTPATH)*.o $(MLX)*.o
+				$(RM) $(OBJS) $(MLX)*.o
 
 fclean:			clean
-				$(RM) $(NAME) $(LIBFT) $(MLXNAME) $(MINILIBX)
+				$(RM) $(NAME) $(MLXNAME) $(MINILIBX)
 
 re:				fclean all
 
-bonus:			$(OBJS_B) $(LIBFT) $(MINILIBX)
-				@echo $(YELLOW)Compiling Bonus ... $(RESET)
-				$(CC) ${CFLAGS} ${OBJS_B} -I $(HEADER) ${LIBFT} ${MLXFLAGS} $(MLXNAME) -o ${NAME}
+bonus:
+				@echo $(YELLOW)WIP ... $(RED)
 
 #Colors
 BLACK		:="\033[0;30m"

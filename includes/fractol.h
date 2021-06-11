@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 03:02:45 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 03:13:35 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 # define FRACTOL_H
 
 # include "../mlx/mlx.h"
-# include "../libft/libft.h"
+# include <stdlib.h>
+//# include <unistd.h>
+//# include <stdarg.h>
+# include <stdio.h>
+//# include <fcntl.h>
+# include <math.h>
+//# include <limits.h>
+//# include "../libft/libft.h"
 
 // Buttons
 # define K_ESC			53
@@ -174,9 +181,11 @@ int		fractals(t_fractol *fractol);
 int		keys(int keycode, t_fractol *fractol);
 int		create_trgb(int t, int r, int g, int b);
 int		my_pixel_get(t_img *data, int x, int y);
+int		ft_strcmp(const char *s1, const char *s2);
 int		keys_release(int keycode, t_fractol *fractol);
 int		mouse_hook(int keycode, int x, int y,t_fractol *fractol);
 
+void	ft_bzero(void *s, size_t n);
 void	print_simple_errors(char *str);
 void	fractal_keys(t_fractol *fractol);
 void	my_pixel_put(t_img *img, int x, int y, int color);

@@ -1,42 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 12:00:56 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 03:05:48 by cgutierr         ###   ########.fr       */
+/*   Created: 2021/06/11 03:11:57 by cgutierr          #+#    #+#             */
+/*   Updated: 2021/06/11 03:14:30 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	my_pixel_put(t_img *data, int x, int y, int color)
+void	ft_bzero(void *s, size_t n)
 {
-	char	*dst;
+	char	*ptr;
 
-	dst = data->addr + (y * data->line_l + x * (data->bpp / 8));
-	*(unsigned int *)dst = color;
+	ptr = s;
+	while (n > 0)
+	{
+		*ptr = 0;
+		ptr++;
+		n--;
+	}
 }
 
-int	my_pixel_get(t_img *data, int x, int y)
+static size_t	ft_strlen(const char *s)
 {
-	return (*(unsigned int *)(data->addr
-		+ (y * data->line_l + x * (data->bpp / 8))));
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }
 
-int	fractals(t_fractol *fractol)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	if (fractol->julia.selected)
-	{
-		julia(fractol);
+	if (ft_strlen(s1) != ft_strlen(s2))
 		return (0);
-	}
-	else if (fractol->mdlbr.selected)
+	while (*s1 && *s2)
 	{
-		mandelbrot(fractol);
-		return (0);
+		if (*s1 != *s2)
+			return (0);
+		s1++;
+		s2++;
 	}
-	return (0);
+	return (1);
 }

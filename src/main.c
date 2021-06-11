@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 02:56:22 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 03:12:39 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 	// save? TODO: regla bonus
 	· cambiar iteraciones + -
 	· cambiar formas x y z julia
+	$ cambiar entre fracatales con el enter
 */
 
 static void	initialize_fractals(t_fractol *fractol)
@@ -79,6 +80,7 @@ int	main(int argc, char **argv)
 {
 	t_fractol	fractol;
 
+	// FIXME: Quitar Libft o libft que no usemos -> Utils
 	ft_bzero(&fractol, sizeof(t_fractol));
 	if (argc < 2)
 		print_simple_errors("A set is needed"

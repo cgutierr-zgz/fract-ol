@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 02:54:42 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 03:07:07 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int	destroy(t_fractol *fractol)
 	fractol->julia.selected = 0;
 	exit(0);
 }
-
-//TODO: Key to change between julia and mandelbrot?
 
 int	keys(int keycode, t_fractol *fractol)
 {
@@ -40,6 +38,20 @@ int	keys(int keycode, t_fractol *fractol)
 	return (keycode);
 }
 
+static void	change_fractal(t_fractol *fractol)
+{
+	if (fractol->julia.selected)
+	{
+		fractol->mdlbr.selected = 1;
+		fractol->julia.selected = 0;
+	}
+	else if (fractol->mdlbr.selected)
+	{
+		fractol->mdlbr.selected = 0;
+		fractol->julia.selected = 1;
+	}
+}
+
 int	keys_release(int keycode, t_fractol *fractol)
 {
 	if (keycode == K_DOWN)
@@ -55,18 +67,7 @@ int	keys_release(int keycode, t_fractol *fractol)
 	if (keycode == K_LESS)
 		fractol->less_iter = 0;
 	if (keycode == K_ENTER)
-	{
-		if(fractol->julia.selected)
-		{
-			fractol->mdlbr.selected = 1;
-			fractol->julia.selected = 0;
-		}
-		else if(fractol->mdlbr.selected)
-		{
-			fractol->mdlbr.selected = 0;
-			fractol->julia.selected = 1;
-		}
-	}
+		change_fractal(fractol);
 	return (keycode);
 }
 
