@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 02:09:54 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 02:23:10 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int julia(t_fractol *fractol)
 		for (int x = 0; x < fractol->screen.x; x++)
 		{
 			//calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
-			fractol->julia.newRe = 1.5 * (x - fractol->screen.y / 2) / (0.5 * fractol->julia.zoom * fractol->screen.x) + fractol->julia.moveX;
-			fractol->julia.newIm = (y - fractol->screen.y / 2) / (0.5 * fractol->julia.zoom * fractol->screen.y) + fractol->julia.moveY;
+			fractol->julia.newRe = 1.5 * (x - fractol->screen.y / 2) / (0.5 * fractol->zoom * fractol->screen.x) + fractol->moveX;
+			fractol->julia.newIm = (y - fractol->screen.y / 2) / (0.5 * fractol->zoom * fractol->screen.y) + fractol->moveY;
 			//i will represent the number of iterations
 			int i;
 			//start the iteration process
-			for (i = 0; i < fractol->julia.maxIterations; i++)
+			for (i = 0; i < fractol->maxIterations; i++)
 			{
 				//remember value of previous iteration
 				fractol->julia.oldRe = fractol->julia.newRe;
@@ -36,37 +36,24 @@ int julia(t_fractol *fractol)
 					break;
 			}
 			//use color model conversion to get rainbow palette, make brightness black if maxIterations reached
-			fractol->julia.color = create_trgb(0, i % 256, 255, 255 * (i < fractol->julia.maxIterations)); //HSVtoRGB(ColorHSV(i % 256, 255, 255 * (i < maxIterations)));
-																										   //draw the pixel
-																										   //pset(x, y, color);
-			my_pixel_put(&fractol->main_img, x, y, fractol->julia.color);
+			fractol->color = create_trgb(0, i % 256, 255, 255 * (i < fractol->maxIterations)); //HSVtoRGB(ColorHSV(i % 256, 255, 255 * (i < maxIterations)));
+																							   //draw the pixel
+																							   //pset(x, y, color);
+			my_pixel_put(&fractol->main_img, x, y, fractol->color);
 		}
 
 	//redraw(); //JULIA KEYS
+	fractal_keys(fractol);
 
 	mlx_put_image_to_window(fractol->mlx, fractol->window,
 							fractol->main_img.img, 0, 0);
 
-	//get the time and old time for time dependent input
 	/*
-    readKeys();
-    //ZOOM keys
-    if(keyDown(SDLK_KP_PLUS))  {zoom *= pow(1.001, frameTime);}
-    if(keyDown(SDLK_KP_MINUS)) {zoom /= pow(1.001, frameTime);}
-    //MOVE keys
-    if(keyDown(SDLK_DOWN))  {moveY += 0.0003 * frameTime / zoom;}
-    if(keyDown(SDLK_UP))  {moveY -= 0.0003 * frameTime / zoom;}
-    if(keyDown(SDLK_RIGHT)) {moveX += 0.0003 * frameTime / zoom;}
-    if(keyDown(SDLK_LEFT))  {moveX -= 0.0003 * frameTime / zoom;}
     //CHANGE SHAPE keys
     if(keyDown(SDLK_KP2)) {cIm += 0.0002 * frameTime / zoom;}
     if(keyDown(SDLK_KP8)) {cIm -= 0.0002 * frameTime / zoom;}
     if(keyDown(SDLK_KP6)) {cRe += 0.0002 * frameTime / zoom;}
     if(keyDown(SDLK_KP4)) {cRe -= 0.0002 * frameTime / zoom;}
-    //keys to change number of iterations
-    if(keyPressed(SDLK_KP_MULTIPLY)) {maxIterations *= 2;}
-    if(keyPressed(SDLK_KP_DIVIDE))   {if(maxIterations > 2) maxIterations /= 2;}
-    //key to change the text options
-    if(keyPressed(SDLK_F1)) {showText++; showText %= 3;}*/
+	*/
 	return (0);
 }

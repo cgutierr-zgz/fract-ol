@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 02:06:38 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 02:20:24 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,22 +150,9 @@ typedef struct s_mandelbrot
 	double newIm;
 	double oldRe;
 	double oldIm;
-	double zoom;
-	double moveX;
-	double moveY;
-	int color;
 	double random;
 	double random_two;
-	int maxIterations;
 
-	int zoom_in;
-	int zoom_out;
-	int move_down;
-	int move_up;
-	int move_right;
-	int move_left;
-	int more_iter;
-	int less_iter;
 }	t_mandelbrot;
 
 typedef struct s_julia
@@ -177,11 +164,6 @@ typedef struct s_julia
 	double newIm; 
 	double oldRe; 
 	double oldIm;
-	double zoom; 
-	double moveX; 
-	double moveY; 
-	int color;
-	int maxIterations;
 
 }	t_julia;
 typedef struct s_fractol
@@ -194,12 +176,28 @@ typedef struct s_fractol
 	t_mov			mov;
 	t_mandelbrot	mdlbr;
 	t_julia			julia;
+
+
+double moveX;
+double moveY;
+double zoom;
+	int maxIterations;
+	int color;
+	int zoom_in;
+	int zoom_out;
+	int move_down;
+	int move_up;
+	int move_right;
+	int move_left;
+	int more_iter;
+	int less_iter;
 }	t_fractol;
 
 // All functions from src, ordered by type and length
 int		get_t(int trgb);
 int		get_r(int trgb);
 int		get_g(int trgb);
+void	fractal_keys(t_fractol *fractol);
 int		get_b(int trgb);
 int		julia(t_fractol *fractol);
 int		mandelbrot(t_fractol *cub);

@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 02:08:28 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 02:17:22 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,12 @@
 
 static void	initialize_fractals(t_fractol *fractol)
 {
-	fractol->mdlbr.zoom = 1;
-	fractol->mdlbr.moveX = -0.5;
-	fractol->mdlbr.moveY = 0;
-	fractol->mdlbr.maxIterations = 24;
-
-	fractol->julia.zoom=1; fractol->julia.moveX=0; fractol->julia.moveY=0; //you can change these to zoom and change position
-  //the RGB color value for the pixel
-  fractol->julia.maxIterations=128; //after how much iterations the function should stop
-
-  //pick some values for the constant c, this determines the shape of the Julia Set
-  fractol->julia.cRe = -0.7;
-  fractol->julia.cIm = 0.27015;
+	fractol->zoom = 1;
+	fractol->moveX = -0.5;
+	fractol->moveY = 0;
+	fractol->maxIterations = 24;
+	fractol->julia.cRe = -0.7;
+	fractol->julia.cIm = 0.27015;
 }
 
 static void	setup(t_fractol *fractol)
