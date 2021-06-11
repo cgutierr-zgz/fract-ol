@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 02:20:24 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 02:56:02 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,13 @@
 
 // Buttons
 # define K_ESC		53
-# define K_W		13
-# define K_A		0
-# define K_S		1
-# define K_D		2
 # define K_DOWN		125
 # define K_LEFT		123
 # define K_RIGHT	124
 # define K_UP		126
 # define K_PLUS		30
 # define K_LESS		44
+# define K_ENTER	36
 
 
 # define SCROLL_UP		4
@@ -198,6 +195,7 @@ int		get_t(int trgb);
 int		get_r(int trgb);
 int		get_g(int trgb);
 void	fractal_keys(t_fractol *fractol);
+int	fractals(t_fractol *fractol);
 int		get_b(int trgb);
 int		julia(t_fractol *fractol);
 int		mandelbrot(t_fractol *cub);

@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 02:17:22 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 02:56:22 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ static void	setup(t_fractol *fractol)
 	mlx_hook(fractol->window, KEY_RELEASE, 1L << 0, keys_release, fractol);
 	mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, fractol);
 	mlx_mouse_hook(fractol->window, mouse_hook, fractol);
-	if (fractol->mdlbr.selected)
-		mlx_loop_hook(fractol->mlx, mandelbrot, fractol);
-	if (fractol->julia.selected)
-		mlx_loop_hook(fractol->mlx, julia, fractol);
+	mlx_loop_hook(fractol->mlx, fractals, fractol);
 	mlx_loop(fractol->mlx);
 }
 
