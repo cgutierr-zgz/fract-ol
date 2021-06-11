@@ -6,11 +6,12 @@
 #    By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/11 10:20:43 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/11 10:36:02 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#https://lodev.org/cgtutor/juliamandelbrot.html
+# REF: https://lodev.org/cgtutor/juliamandelbrot.html
+
 DAY			=	$(shell date +'%d/%m/%Y %H:%M')
 
 NAME		=	fractol
@@ -27,18 +28,13 @@ SRCS		=	./src/main.c \
 				./src/mandelbrot.c \
 				./src/julia.c \
 				./src/movement.c \
-				./src/utils.c \
-				./src/bmp.c
-
-SRCS_B		=	./src_bonus/main_bonus.c
+				./src/utils.c
 
 OBJS			=	$(SRCS:.c=.o)
 
-OBJS_B			=	$(SRCS_B:.c=.o)
-
 CC				=	gcc
 
-CFLAGS			=	-Wall -Werror -Wextra -O3 -g3 -fsanitize=address
+CFLAGS			=	-Wall -Werror -Wextra -O3 -g3#-fsanitize=address
 
 MLXFLAGS		=	libmlx.dylib -framework Metal -framework AppKit
 
@@ -94,7 +90,7 @@ RESET		:="\x1b[0m"
 
 #Easily execute your main
 exe:			$(NAME)
-				@./fractol || true
+				@./fractol julia || true
 # VALGRIND
 #         --leak-check=full \ Each individual leak will be shown in detail
 #         --show-leak-kinds=all \ Show all of "definite, indirect, possible, reachable" leak kinds in the "full" report.
