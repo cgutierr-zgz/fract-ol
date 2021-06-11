@@ -15,10 +15,10 @@ or
 
 Controls:
 
-WASD or ▲ ◄ ▼ ► to move
+`WASD` or `▲ ◄ ▼ ►` to move
 
-Enter to change between fractals
+`⏎` to change between fractals
 
-+ or - to increase or decrease the iterations
+`+` or `-` to increase or decrease the iterations
 
-mouse wheel to zoom in/out
+`Mouse wheel` to zoom in/out
