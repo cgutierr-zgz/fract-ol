@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 03:07:07 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 10:32:06 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	keys(int keycode, t_fractol *fractol)
 {
 	if (keycode == K_ESC)
 		destroy(fractol);
-	if (keycode == K_DOWN)
+	if (keycode == K_DOWN || keycode == K_S)
 		fractol->move_down = 1;
-	if (keycode == K_LEFT)
+	if (keycode == K_LEFT || keycode == K_A)
 		fractol->move_left = 1;
-	if (keycode == K_RIGHT)
+	if (keycode == K_RIGHT || keycode == K_D)
 		fractol->move_right = 1;
-	if (keycode == K_UP)
+	if (keycode == K_UP || keycode == K_W)
 		fractol->move_up = 1;
 	if (keycode == K_PLUS)
 		fractol->more_iter = 1;
@@ -54,13 +54,13 @@ static void	change_fractal(t_fractol *fractol)
 
 int	keys_release(int keycode, t_fractol *fractol)
 {
-	if (keycode == K_DOWN)
+	if (keycode == K_DOWN || keycode == K_S)
 		fractol->move_down = 0;
-	if (keycode == K_LEFT)
+	if (keycode == K_LEFT || keycode == K_A)
 		fractol->move_left = 0;
-	if (keycode == K_RIGHT)
+	if (keycode == K_RIGHT || keycode == K_D)
 		fractol->move_right = 0;
-	if (keycode == K_UP)
+	if (keycode == K_UP || keycode == K_W)
 		fractol->move_up = 0;
 	if (keycode == K_PLUS)
 		fractol->more_iter = 0;

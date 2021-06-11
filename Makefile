@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/11 03:13:23 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/11 10:20:43 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS		=	./src/main.c \
 				./src/mandelbrot.c \
 				./src/julia.c \
 				./src/movement.c \
-				./src/utils.c
+				./src/utils.c \
+				./src/bmp.c
 
 SRCS_B		=	./src_bonus/main_bonus.c
 

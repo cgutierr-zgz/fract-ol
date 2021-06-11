@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 03:15:35 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 10:31:14 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 # define FRACTOL_H
 
 # include "../mlx/mlx.h"
+# include <unistd.h>
+# include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
 
 // Buttons
 # define K_ESC			53
+# define K_W			13
+# define K_A			0
+# define K_S			1
+# define K_D			2
 # define K_DOWN			125
 # define K_LEFT			123
 # define K_RIGHT		124

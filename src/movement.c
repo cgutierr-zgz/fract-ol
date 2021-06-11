@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 02:19:53 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 03:05:55 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 10:33:07 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #define FRAME_TIME 120.0
 
-static void	more_keys(t_fractol *fractol)
+static void	move_keys(t_fractol *fractol)
 {
 	if (fractol->move_down)
 		fractol->moveY += 0.0003 * FRAME_TIME / fractol->zoom;
@@ -48,5 +48,5 @@ void	fractal_keys(t_fractol *fractol)
 		if (fractol->maxIterations > 4)
 			fractol->maxIterations -= 4;
 	}
-	more_keys(fractol);
+	move_keys(fractol);
 }
