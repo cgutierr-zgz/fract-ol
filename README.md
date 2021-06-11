@@ -6,10 +6,19 @@
 
 `mak exe` to execute the program.
 
-or
+or 
 
 ```
 ./fractol julia
 ./fractol mandelbrot
 ```
 
+Controls:
+
+WASD or ▲ ◄ ▼ ► to move
+
+Enter to change between fractals
+
++ or - to increase or decrease the iterations
+
+mouse wheel to zoom in/out
