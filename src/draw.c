@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 12:00:56 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 10:28:05 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 11:51:00 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	my_pixel_get(t_img *data, int x, int y)
 
 int	fractals(t_fractol *fractol)
 {
+	fractol->random += 0.025;
+	fractol->random_two += 0.010;
 	if (fractol->julia.selected)
 		julia(fractol);
 	else if (fractol->mdlbr.selected)

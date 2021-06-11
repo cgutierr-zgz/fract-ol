@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 02:55:40 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 11:51:41 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,18 @@ int julia(t_fractol *fractol)
 					break;
 			}
 			//use color model conversion to get rainbow palette, make brightness black if maxIterations reached
-			fractol->color = create_trgb(0, i % 256, 255, 255 * (i < fractol->maxIterations)); //HSVtoRGB(ColorHSV(i % 256, 255, 255 * (i < maxIterations)));
-																							   //draw the pixel
+		//	fractol->color = create_trgb(0, i % 256, 255, 255 * (i < fractol->maxIterations)); //HSVtoRGB(ColorHSV(i % 256, 255, 255 * (i < maxIterations)));
+		
+	int	r;
+	int	g;
+	int	b;
+
+	g = (int)(255 * ((double)i / (double)fractol->maxIterations));
+		r = ((255 - g) * 0.60) * fabs(cos(fractol->random));
+		b = ((255 - g) * 0.2) * fabs(sin(fractol->random_two));
+		fractol->color = create_trgb(0, r * fractol->random, g, b);
+		if (g == 255)
+			fractol->color = create_trgb(0, 0, 0, 0);																					   //draw the pixel
 																							   //pset(x, y, color);
 			my_pixel_put(&fractol->main_img, x, y, fractol->color);
 		}

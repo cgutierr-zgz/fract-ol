@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 10:28:00 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 11:53:55 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	good_args(char **argv, t_fractol *fractol)
 	fractol->screen.x = 500;
 	fractol->screen.y = 500;
 	fractol->window = mlx_new_window(fractol->mlx, fractol->screen.x,
-			fractol->screen.y - 55, argv[1]);
+			fractol->screen.y - 55, "fract-ol");
 	if (!(fractol->window))
 		print_simple_errors("There was a problem opening a new Window");
 	setup(fractol);

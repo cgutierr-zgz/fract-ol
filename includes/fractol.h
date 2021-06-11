@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 10:31:14 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 11:51:18 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,9 +130,6 @@ typedef struct s_mandelbrot
 	double	newIm;
 	double	oldRe;
 	double	oldIm;
-	double	random;
-	double	random_two;
-
 }	t_mandelbrot;
 
 typedef struct s_julia
@@ -155,6 +152,8 @@ typedef struct s_fractol
 	void			*window;
 	t_mandelbrot	mdlbr;
 	t_julia			julia;
+	double			random;
+	double			random_two;
 	double			moveX;
 	double			moveY;
 	double			zoom;
