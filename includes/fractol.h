@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 01:38:44 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 02:06:38 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ typedef struct s_xy
 
 typedef struct s_mandelbrot
 {
+	int selected;
 	double pr;
 	double pi;
 	double newRe;
@@ -156,7 +157,6 @@ typedef struct s_mandelbrot
 	double random;
 	double random_two;
 	int maxIterations;
-	int selected;
 
 	int zoom_in;
 	int zoom_out;
@@ -171,6 +171,18 @@ typedef struct s_mandelbrot
 typedef struct s_julia
 {
 	int selected;
+	double cRe;
+	double cIm;
+	double newRe; 
+	double newIm; 
+	double oldRe; 
+	double oldIm;
+	double zoom; 
+	double moveX; 
+	double moveY; 
+	int color;
+	int maxIterations;
+
 }	t_julia;
 typedef struct s_fractol
 {

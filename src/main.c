@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 01:53:47 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 02:08:28 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,48 @@
 	· cambiar formas x y z julia
 */
 
-static void good_args(char **argv, t_fractol *fractol)
+static void	initialize_fractals(t_fractol *fractol)
+{
+	fractol->mdlbr.zoom = 1;
+	fractol->mdlbr.moveX = -0.5;
+	fractol->mdlbr.moveY = 0;
+	fractol->mdlbr.maxIterations = 24;
+
+	fractol->julia.zoom=1; fractol->julia.moveX=0; fractol->julia.moveY=0; //you can change these to zoom and change position
+  //the RGB color value for the pixel
+  fractol->julia.maxIterations=128; //after how much iterations the function should stop
+
+  //pick some values for the constant c, this determines the shape of the Julia Set
+  fractol->julia.cRe = -0.7;
+  fractol->julia.cIm = 0.27015;
+}
+
+static void	setup(t_fractol *fractol)
+{
+	fractol->main_img.img = mlx_new_image(fractol->mlx,
+			fractol->screen.x, fractol->screen.y);
+	fractol->main_img.addr = mlx_get_data_addr(fractol->main_img.img,
+			&fractol->main_img.bpp, &fractol->main_img.line_l,
+			&fractol->main_img.endian);
+	initialize_fractals(fractol);
+	mlx_hook(fractol->window, KEY_PRESS, 1L << 0, keys, fractol);
+	mlx_hook(fractol->window, KEY_RELEASE, 1L << 0, keys_release, fractol);
+	mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, fractol);
+	mlx_mouse_hook(fractol->window, mouse_hook, fractol);
+	if (fractol->mdlbr.selected)
+		mlx_loop_hook(fractol->mlx, mandelbrot, fractol);
+	if (fractol->julia.selected)
+		mlx_loop_hook(fractol->mlx, julia, fractol);
+	mlx_loop(fractol->mlx);
+}
+
+static void	good_args(char **argv, t_fractol *fractol)
 {
 	if (!ft_strcmp("julia", argv[1]) && !ft_strcmp("mandelbrot", argv[1]))
 	{
 		printf("Error\nUnknown set: \"%s\""
-		"\nTry with:\n\t·julia\n\t·mandelbrot\n", argv[1]);
+			   "\nTry with:\n\t·julia\n\t·mandelbrot\n",
+			   argv[1]);
 		exit(1);
 	}
 	if (ft_strcmp("julia", argv[1]))
@@ -39,34 +75,13 @@ static void good_args(char **argv, t_fractol *fractol)
 	if (!fractol->mlx)
 		print_simple_errors("There was a problem with MiniLibx");
 	mlx_get_screen_size(fractol->mlx, &fractol->screen.x, &fractol->screen.y);
-
 	fractol->screen.x = 500;
 	fractol->screen.y = 500;
-
-	fractol->window = mlx_new_window(fractol->mlx, fractol->screen.x, fractol->screen.y - 55, "fract-ol");
+	fractol->window = mlx_new_window(fractol->mlx, fractol->screen.x,
+			fractol->screen.y - 55, argv[1]);
 	if (!(fractol->window))
 		print_simple_errors("There was a problem opening a new Window");
-	fractol->main_img.img = mlx_new_image(fractol->mlx,
-										  fractol->screen.x, fractol->screen.y);
-	fractol->main_img.addr = mlx_get_data_addr(fractol->main_img.img,
-											   &fractol->main_img.bpp, &fractol->main_img.line_l,
-											   &fractol->main_img.endian);
-
-// TODO: Mover esto a otro lado
-	fractol->mdlbr.zoom = 1;
-	fractol->mdlbr.moveX = -0.5;
-	fractol->mdlbr.moveY = 0;
-	fractol->mdlbr.maxIterations = 24;
-
-	mlx_hook(fractol->window, KEY_PRESS, 1L << 0, keys, fractol);
-	mlx_hook(fractol->window, KEY_RELEASE, 1L << 0, keys_release, fractol);
-	mlx_hook(fractol->window, DESTROY_NOTIFY, 0L, destroy, fractol);
-	mlx_mouse_hook(fractol->window, mouse_hook, fractol);
-	if(fractol->mdlbr.selected)
-		mlx_loop_hook(fractol->mlx, mandelbrot, fractol);
-	if(fractol->julia.selected)
-		mlx_loop_hook(fractol->mlx, julia, fractol);
-	mlx_loop(fractol->mlx);
+	setup(fractol);
 }
 
 int	main(int argc, char **argv)
