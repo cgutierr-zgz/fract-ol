@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/11 10:36:02 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/11 10:41:25 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,8 +115,8 @@ git:
 norminette:
 				@echo $(YELLOW)Norminette...
 				@echo $(GREEN)
-				@norminette $(SRCS) $(SRCS_B) $(HEADER) $(HEADER_B) ./libft/*.c ./libft/*.h | grep 'OK' || true 
+				@norminette $(SRCS) $(HEADER) | grep 'OK' || true 
 				@echo $(RED)
-				@norminette $(SRCS) $(SRCS_B) $(HEADER) $(HEADER_B) ./libft/*.c ./libft/*.h | grep 'Error!\|line:' || true
+				@norminette $(SRCS) $(HEADER) | grep 'Error!\|line:' || true
 						
 .PHONY:			all clean fclean re
