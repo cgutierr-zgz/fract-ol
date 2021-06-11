@@ -1,4 +1,4 @@
-# cub3D
+# fract-ol
 <img src ="https://img.shields.io/badge/Result-XXX%2F100-green"/>
 
 # Usage
