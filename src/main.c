@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 11:53:55 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 12:27:42 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 	• El zoom sigue la posición actual del ratón.
 	• Adicionalmente al zoom: moverse con flechas.
 	• Haz que el rango de color cambie.
-	// save? TODO: regla bonus
+	// save? TODO: regla bonus?????
+	· Musikita en bonus
 	· cambiar iteraciones + -
 	· cambiar formas x y z julia
 	$ cambiar entre fracatales con el enter
