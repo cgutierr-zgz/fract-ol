@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 02:56:02 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/11 03:02:45 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,14 @@
 # include "../libft/libft.h"
 
 // Buttons
-# define K_ESC		53
-# define K_DOWN		125
-# define K_LEFT		123
-# define K_RIGHT	124
-# define K_UP		126
-# define K_PLUS		30
-# define K_LESS		44
-# define K_ENTER	36
-
-
+# define K_ESC			53
+# define K_DOWN			125
+# define K_LEFT			123
+# define K_RIGHT		124
+# define K_UP			126
+# define K_PLUS			30
+# define K_LESS			44
+# define K_ENTER		36
 # define SCROLL_UP		4
 # define SCROLL_DOWN	5
 
@@ -101,21 +99,6 @@
 ** # define OWNER_GRAB_BUTTON_MASK		(1L<<24)
 */
 
-typedef struct s_mov
-{
-	int				left;
-	int				right;
-	int				up;
-	int				down;
-	int				rotate_left;
-	int				rotate_right;
-	double			mov_s;
-	double			rot_s;
-	int				x_mouse;
-	int				y_mouse;
-	unsigned int	delay;
-}	t_mov;
-
 typedef struct s_img {
 	void	*img;
 	char	*addr;
@@ -123,14 +106,6 @@ typedef struct s_img {
 	int		line_l;
 	int		endian;
 }	t_img;
-
-typedef struct s_rgb
-{
-	int		r;
-	int		g;
-	int		b;
-	int		trgb;
-}	t_rgb;
 
 typedef struct s_xy
 {
@@ -140,75 +115,72 @@ typedef struct s_xy
 
 typedef struct s_mandelbrot
 {
-	int selected;
-	double pr;
-	double pi;
-	double newRe;
-	double newIm;
-	double oldRe;
-	double oldIm;
-	double random;
-	double random_two;
+	int		selected;
+	double	pr;
+	double	pi;
+	double	newRe;
+	double	newIm;
+	double	oldRe;
+	double	oldIm;
+	double	random;
+	double	random_two;
 
 }	t_mandelbrot;
 
 typedef struct s_julia
 {
-	int selected;
-	double cRe;
-	double cIm;
-	double newRe; 
-	double newIm; 
-	double oldRe; 
-	double oldIm;
+	int		selected;
+	double	cRe;
+	double	cIm;
+	double	newRe; 
+	double	newIm; 
+	double	oldRe; 
+	double	oldIm;
 
 }	t_julia;
+
 typedef struct s_fractol
 {
 	t_img			main_img;
-	int				order;
 	t_xy			screen;
 	void			*mlx;
 	void			*window;
-	t_mov			mov;
 	t_mandelbrot	mdlbr;
 	t_julia			julia;
-
-
-double moveX;
-double moveY;
-double zoom;
-	int maxIterations;
-	int color;
-	int zoom_in;
-	int zoom_out;
-	int move_down;
-	int move_up;
-	int move_right;
-	int move_left;
-	int more_iter;
-	int less_iter;
+	double			moveX;
+	double			moveY;
+	double			zoom;
+	int				maxIterations;
+	int				color;
+	int				zoom_in;
+	int				zoom_out;
+	int				move_down;
+	int				move_up;
+	int				move_right;
+	int				move_left;
+	int				more_iter;
+	int				less_iter;
 }	t_fractol;
 
 // All functions from src, ordered by type and length
 int		get_t(int trgb);
 int		get_r(int trgb);
 int		get_g(int trgb);
-void	fractal_keys(t_fractol *fractol);
-int	fractals(t_fractol *fractol);
 int		get_b(int trgb);
 int		julia(t_fractol *fractol);
 int		mandelbrot(t_fractol *cub);
 int		destroy(t_fractol *fractol);
+int		fractals(t_fractol *fractol);
 int		keys(int keycode, t_fractol *fractol);
 int		create_trgb(int t, int r, int g, int b);
 int		my_pixel_get(t_img *data, int x, int y);
 int		keys_release(int keycode, t_fractol *fractol);
 int		mouse_hook(int keycode, int x, int y,t_fractol *fractol);
 
-void	bmp_save(t_fractol *fractol);
 void	print_simple_errors(char *str);
-void	start_graphics(t_fractol *fractol);
+void	fractal_keys(t_fractol *fractol);
 void	my_pixel_put(t_img *img, int x, int y, int color);
+
+void	bmp_save(t_fractol *fractol);
 
 #endif
