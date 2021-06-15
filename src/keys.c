@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 21:04:19 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:23:49 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,36 +43,16 @@ int	keys(int keycode, t_fractol *fractol)
 	return (keycode);
 }
 
-static void	change_fractal(t_fractol *fractol)
+static void	change_julia(int keycode, t_fractol *fractol)
 {
-	if (fractol->julia.selected)
-	{
-		fractol->mdlbr.selected = 1;
-		fractol->julia.selected = 0;
-		fractol->sierpinski.selected = 0;
-		fractol->trees.selected = 0;
-	}
-	else if (fractol->mdlbr.selected)
-	{
-		fractol->mdlbr.selected = 0;
-		fractol->julia.selected = 0;
-		fractol->sierpinski.selected = 1;
-		fractol->trees.selected = 0;
-	}
-	else if (fractol->sierpinski.selected)
-	{
-		fractol->mdlbr.selected = 0;
-		fractol->julia.selected = 0;
-		fractol->sierpinski.selected = 0;
-		fractol->trees.selected = 1;
-	}
-	else if (fractol->trees.selected)
-	{
-		fractol->mdlbr.selected = 0;
-		fractol->julia.selected = 1;
-		fractol->sierpinski.selected = 0;
-		fractol->trees.selected = 0;
-	}
+	if (keycode == K_ONE)
+		fractol->julia.cIm += 0.0002 * FRAME_TIME / fractol->zoom;
+	if (keycode == K_TWO)
+		fractol->julia.cIm -= 0.0002 * FRAME_TIME / fractol->zoom;
+	if (keycode == K_THREE)
+		fractol->julia.cRe += 0.0002 * FRAME_TIME / fractol->zoom;
+	if (keycode == K_FOUR)
+		fractol->julia.cRe -= 0.0002 * FRAME_TIME / fractol->zoom;
 }
 
 int	keys_release(int keycode, t_fractol *fractol)
@@ -93,14 +73,7 @@ int	keys_release(int keycode, t_fractol *fractol)
 			fractol->less_iter = 0;
 		if (keycode == K_ENTER)
 			change_fractal(fractol);
-		if (keycode == K_ONE)
-			fractol->julia.cIm += 0.0002 * FRAME_TIME / fractol->zoom;
-		if (keycode == K_TWO)
-			fractol->julia.cIm -= 0.0002 * FRAME_TIME / fractol->zoom;
-		if (keycode == K_THREE)
-			fractol->julia.cRe += 0.0002 * FRAME_TIME / fractol->zoom;
-		if (keycode == K_FOUR)
-			fractol->julia.cRe -= 0.0002 * FRAME_TIME / fractol->zoom;
+		change_julia(keycode, fractol);
 	}
 	return (keycode);
 }

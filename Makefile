@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/15 20:11:07 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/15 21:23:34 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS		=	./src/main.c \
 				./src/sierpinski.c \
 				./src/trees.c \
 				./src/movement.c \
+				./src/change_fractal.c \
 				./src/utils.c
 
 SRCS_BONUS	=	./src/main_bonus.c \
@@ -40,6 +41,7 @@ SRCS_BONUS	=	./src/main_bonus.c \
 				./src/sierpinski.c \
 				./src/trees.c \
 				./src/movement.c \
+				./src/change_fractal.c \
 				./src/utils.c
 
 OBJS			=	$(SRCS:.c=.o)
@@ -127,8 +129,8 @@ git:
 norminette:
 				@echo $(YELLOW)Norminette...
 				@echo $(GREEN)
-				@norminette $(SRCS) $(HEADER) | grep 'OK' || true 
+				@norminette $(SRCS) $(SRCS_BONUS) $(HEADER) | grep 'OK' || true 
 				@echo $(RED)
-				@norminette $(SRCS) $(HEADER) | grep 'Error!\|line:' || true
+				@norminette $(SRCS) $(SRCS_BONUS) $(HEADER) | grep 'Error!\|line:' || true
 						
 .PHONY:			all clean fclean re

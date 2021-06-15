@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 21:01:43 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:23:18 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,6 +208,7 @@ int		mouse_hook(int keycode, int x, int y, t_fractol *fractol);
 void	ft_bzero(void *s, size_t n);
 void	print_simple_errors(char *str);
 void	fractal_keys(t_fractol *fractol);
+void	change_fractal(t_fractol *fractol);
 void	set_color(t_fractol *fractol, int *i);
 void	my_pixel_put(t_img *img, int x, int y, int color);
 
