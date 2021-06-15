@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 11:51:31 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 15:15:15 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,6 @@ static void	maindelbrot(t_fractol *fractol, int *x, int *y, int *i)
 //int random = (rand() % (10 - 3 + 1) + 3);
 //color = HSVtoRGB(ColorHSV(i % 256, 255, 255 * (i < maxIterations)));
 
-static void	set_color(t_fractol *fractol, int *i)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	g = (int)(255 * ((double)*i / (double)fractol->maxIterations));
-	r = ((255 - g) * 0.60) * fabs(cos(fractol->random));
-	b = ((255 - g) * 0.2) * fabs(sin(fractol->random_two));
-	fractol->color = create_trgb(0, r * fractol->random, g, b);
-	if (g == 255)
-		fractol->color = create_trgb(0, 0, 0, 0);
-}
-
 int	mandelbrot(t_fractol *fractol)
 {
 	int	y;
@@ -65,7 +51,6 @@ int	mandelbrot(t_fractol *fractol)
 	int	i;
 
 	y = 0;
-	mlx_sync(MLX_SYNC_WIN_CMD_COMPLETED, fractol->window);
 	while (y < fractol->screen.y)
 	{
 		x = 0;
