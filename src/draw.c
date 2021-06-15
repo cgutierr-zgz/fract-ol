@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 12:00:56 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 19:30:42 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:57:48 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	my_pixel_put(t_img *data, int x, int y, int color)
 
 int	my_pixel_get(t_img *data, int x, int y)
 {
-	return (*(unsigned int *)(data->addr
-		+ (y * data->line_l + x * (data->bpp / 8))));
+	return (*(unsigned int *)(data->addr + (y * data->line_l + x * (data->bpp / 8))));
 }
 
 void	set_color(t_fractol *fractol, int *i)
@@ -42,7 +41,7 @@ void	set_color(t_fractol *fractol, int *i)
 
 int	fractals(t_fractol *fractol)
 {
-	if(fractol->bonus)
+	if (fractol->bonus)
 	{
 		fractol->random += 0.025;
 		fractol->random_two += 0.010;
@@ -59,5 +58,13 @@ int	fractals(t_fractol *fractol)
 	fractal_keys(fractol);
 	mlx_put_image_to_window(fractol->mlx, fractol->window,
 							fractol->main_img.img, 0, 0);
+	if (fractol->julia.selected)
+		mlx_string_put(fractol->mlx, fractol->window, 10, 25, 321321, "Julia");
+	else if (fractol->mdlbr.selected)
+		mlx_string_put(fractol->mlx, fractol->window, 10, 25, 321321, "Mandelbrot");
+	else if (fractol->sierpinski.selected)
+		mlx_string_put(fractol->mlx, fractol->window, 10, 25, 321321, "Sierpinski");
+	else if (fractol->trees.selected)
+		mlx_string_put(fractol->mlx, fractol->window, 10, 25, 321321, "Trees");
 	return (0);
 }

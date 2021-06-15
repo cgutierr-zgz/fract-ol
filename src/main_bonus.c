@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 19:29:13 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:35:19 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static void	good_args(char **argv, t_fractol *fractol)
 		fractol->mdlbr.selected = 1;
 	if (ft_strcmp("sierpinski", argv[1]))
 		fractol->sierpinski.selected = 1;
-	if (ft_strcmp("sierpinski", argv[1]))
+	if (ft_strcmp("trees", argv[1]))
 		fractol->trees.selected = 1;
 	fractol->mlx = mlx_init();
 	if (!fractol->mlx)

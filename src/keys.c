@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 19:30:27 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:34:57 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int destroy(t_fractol *fractol)
 {
 	fractol->mdlbr.selected = 0;
 	fractol->julia.selected = 0;
+	fractol->sierpinski.selected = 0;
+	fractol->trees.selected = 0;
 	exit(0);
 }
 
