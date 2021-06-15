@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 16:33:24 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:29:43 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,11 @@ typedef struct s_sierpinski
 	int		selected;
 }	t_sierpinski;
 
+typedef struct s_trees
+{
+	int		selected;
+}	t_trees;
+
 typedef struct s_fractol
 {
 	t_img			main_img;
@@ -164,6 +169,7 @@ typedef struct s_fractol
 	t_mandelbrot	mdlbr;
 	t_julia			julia;
 	t_sierpinski	sierpinski;
+	t_trees			trees;
 	double			random;
 	double			random_two;
 	double			moveX;
@@ -187,6 +193,7 @@ int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
 int		julia(t_fractol *fractol);
+int		trees(t_fractol *fractol);
 int		mandelbrot(t_fractol *cub);
 int		destroy(t_fractol *fractol);
 int		fractals(t_fractol *fractol);
@@ -204,6 +211,6 @@ void	fractal_keys(t_fractol *fractol);
 void	set_color(t_fractol *fractol, int *i);
 void	my_pixel_put(t_img *img, int x, int y, int color);
 
-void	bmp_save(t_fractol *fractol);
+// FIXME: void	bmp_save(t_fractol *fractol);
 
 #endif

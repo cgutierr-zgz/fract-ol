@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sierpinski.c                                       :+:      :+:    :+:   */
+/*   trees.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 19:23:56 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:32:27 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int sierpinski(t_fractol *fractol)
+int trees(t_fractol *fractol)
 {
 	int y = 0;
 	int x;
 	int i;
 	y = 0;
 	int n;
-	n = 3;
+	n = 1;
 	//n *= fractol->random / fractol->random_two;
 	while (y < fractol->screen.y)
 	{
-		i = rand() * sin(x * y) / 2;
+		i = 2;//rand() * sin(x * y) / 2;
 		x = 0;
 
 		while (x < fractol->screen.x)
