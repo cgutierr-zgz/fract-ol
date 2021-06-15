@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 12:00:56 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 15:16:25 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 15:26:03 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	fractals(t_fractol *fractol)
 		julia(fractol);
 	else if (fractol->mdlbr.selected)
 		mandelbrot(fractol);
+	else if (fractol->trees.selected)
+		trees(fractol);
 	fractal_keys(fractol);
 	return (0);
 }

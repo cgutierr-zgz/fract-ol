@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 15:14:19 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 15:25:51 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,7 @@ int		get_g(int trgb);
 int		get_b(int trgb);
 int		julia(t_fractol *fractol);
 int		mandelbrot(t_fractol *cub);
+int		trees(t_fractol *fractol);
 int		destroy(t_fractol *fractol);
 int		fractals(t_fractol *fractol);
 int		keys(int keycode, t_fractol *fractol);

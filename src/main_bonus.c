@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 14:10:00 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 15:25:03 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	main(int argc, char **argv)
 	fractol.bonus = 1;
 	if (argc < 2)
 		print_simple_errors("A set is needed"
-			"\nTry with:\n\t·julia\n\t·mandelbrot");
+			"\nTry with:\n\t·julia\n\t·mandelbrot\n\t·trees\n");
 	if (argc == 2)
 	{
 		if (!(ft_strcmp("./fractol", argv[0]) || ft_strcmp("fractol", argv[0])))

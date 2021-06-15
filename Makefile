@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/15 15:23:03 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/15 15:27:14 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS_BONUS	=	./src/main_bonus.c \
 				./src/keys.c \
 				./src/mandelbrot.c \
 				./src/julia.c \
+				./src/trees.c \
 				./src/movement.c \
 				./src/utils.c
 
