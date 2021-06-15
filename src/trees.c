@@ -6,12 +6,12 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 20:00:34 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 20:11:37 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
+/*
 void recursion(double posX, double posY, double dirX, double dirY, double size, int n,
 			   t_fractol *fractol)
 {
@@ -47,9 +47,11 @@ void recursion(double posX, double posY, double dirX, double dirY, double size, 
 	dirY2 = -sin(-angle) * dirX + cos(-angle) * dirY;
 	recursion(posX2, posY2, dirX2, dirY2, size2, n2, fractol);
 }
-
+*/
 int trees(t_fractol *fractol)
 {
-	recursion(fractol->screen.x / 2, fractol->screen.y - 1, 0, -1, fractol->screen.y / 2.3, 0, fractol);
+//	recursion(fractol->screen.x / 2, fractol->screen.y - 1, 0, -1, fractol->screen.y / 2.3, 0, fractol);
+int x = fractol->moveY;
+x++;
 	return (0);
 }

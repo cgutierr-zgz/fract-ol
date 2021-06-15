@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/15 19:46:22 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/15 20:11:07 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
 
 CC				=	gcc
 
-CFLAGS			=	#-Wall -Werror -Wextra -O3 -g3#-fsanitize=address
+CFLAGS			=	-Wall -Werror -Wextra -O3 -g3#-fsanitize=address
 
 MLXFLAGS		=	libmlx.dylib -framework Metal -framework AppKit
 
