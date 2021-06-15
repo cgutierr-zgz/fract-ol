@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 11:51:18 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 14:08:30 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,14 +144,21 @@ typedef struct s_julia
 
 }	t_julia;
 
+typedef struct s_trees
+{
+	int		selected;
+}	t_trees;
+
 typedef struct s_fractol
 {
 	t_img			main_img;
 	t_xy			screen;
 	void			*mlx;
 	void			*window;
+	int				bonus;
 	t_mandelbrot	mdlbr;
 	t_julia			julia;
+	t_trees			trees;
 	double			random;
 	double			random_two;
 	double			moveX;

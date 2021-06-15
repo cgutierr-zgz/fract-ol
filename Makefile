@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/11 10:41:25 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/15 14:12:53 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,6 @@ NAME		=	fractol
 
 HEADER		=	./includes/fractol.h
 
-HEADER_B	=	./includes/fractol_bonus.h
-
 SRCS		=	./src/main.c \
 				./src/print.c \
 				./src/draw.c \
@@ -30,7 +28,19 @@ SRCS		=	./src/main.c \
 				./src/movement.c \
 				./src/utils.c
 
+SRCS_BONUS	=	./src/main_bonus.c \
+				./src/print.c \
+				./src/draw.c \
+				./src/rgb.c \
+				./src/keys.c \
+				./src/mandelbrot.c \
+				./src/julia.c \
+				./src/movement.c \
+				./src/utils.c
+
 OBJS			=	$(SRCS:.c=.o)
+
+OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
 
 CC				=	gcc
 
@@ -66,8 +76,9 @@ fclean:			clean
 
 re:				fclean all
 
-bonus:
-				@echo $(YELLOW)WIP ... $(RED)
+bonus:			$(OBJS_BONUS) $(MINILIBX)
+				@echo $(YELLOW)Compiling Bonus ... $(RESET)
+				$(CC) ${CFLAGS} ${OBJS_BONUS} -I $(HEADER) ${MLXFLAGS} $(MLXNAME) -o ${NAME}
 
 #Colors
 BLACK		:="\033[0;30m"
@@ -88,9 +99,6 @@ LIGHT_CYAN	:="\033[1;36m"
 WHITE		:="\033[1;37m"
 RESET		:="\x1b[0m"
 
-#Easily execute your main
-exe:			$(NAME)
-				@./fractol julia || true
 # VALGRIND
 #         --leak-check=full \ Each individual leak will be shown in detail
 #         --show-leak-kinds=all \ Show all of "definite, indirect, possible, reachable" leak kinds in the "full" report.

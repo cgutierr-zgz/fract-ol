@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 14:09:04 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 14:10:00 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,11 @@ static void	setup(t_fractol *fractol)
 
 static void	good_args(char **argv, t_fractol *fractol)
 {
-	if (!ft_strcmp("julia", argv[1]) && !ft_strcmp("mandelbrot", argv[1]))
+	if (!ft_strcmp("julia", argv[1]) && !ft_strcmp("mandelbrot", argv[1])
+		&& !ft_strcmp("trees", argv[1]))
 	{
 		printf("Error\nUnknown set: \"%s\""
-			   "\nTry with:\n\t·julia\n\t·mandelbrot\n",
+			   "\nTry with:\n\t·julia\n\t·mandelbrot\n\t·trees\n",
 			   argv[1]);
 		exit(1);
 	}
@@ -64,6 +65,8 @@ static void	good_args(char **argv, t_fractol *fractol)
 		fractol->julia.selected = 1;
 	if (ft_strcmp("mandelbrot", argv[1]))
 		fractol->mdlbr.selected = 1;
+	if (ft_strcmp("trees", argv[1]))
+		fractol->trees.selected = 1;
 	fractol->mlx = mlx_init();
 	if (!fractol->mlx)
 		print_simple_errors("There was a problem with MiniLibx");
@@ -82,7 +85,7 @@ int	main(int argc, char **argv)
 	t_fractol	fractol;
 
 	ft_bzero(&fractol, sizeof(t_fractol));
-	fractol.bonus = 0;
+	fractol.bonus = 1;
 	if (argc < 2)
 		print_simple_errors("A set is needed"
 			"\nTry with:\n\t·julia\n\t·mandelbrot");
