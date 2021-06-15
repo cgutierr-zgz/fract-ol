@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 16:23:13 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:33:32 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,19 @@ static void change_fractal(t_fractol *fractol)
 	{
 		fractol->mdlbr.selected = 1;
 		fractol->julia.selected = 0;
-		fractol->trees.selected = 0;
+		fractol->sierpinski.selected = 0;
 	}
 	else if (fractol->mdlbr.selected)
 	{
 		fractol->mdlbr.selected = 0;
 		fractol->julia.selected = 0;
-		fractol->trees.selected = 1;
+		fractol->sierpinski.selected = 1;
 	}
-	else if (fractol->trees.selected)
+	else if (fractol->sierpinski.selected)
 	{
 		fractol->mdlbr.selected = 0;
 		fractol->julia.selected = 1;
-		fractol->trees.selected = 0;
+		fractol->sierpinski.selected = 0;
 	}
 }
 

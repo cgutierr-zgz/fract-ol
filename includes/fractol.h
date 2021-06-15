@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 16:18:59 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:33:24 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,10 +149,10 @@ typedef struct s_julia
 
 }	t_julia;
 
-typedef struct s_trees
+typedef struct s_sierpinski
 {
 	int		selected;
-}	t_trees;
+}	t_sierpinski;
 
 typedef struct s_fractol
 {
@@ -163,7 +163,7 @@ typedef struct s_fractol
 	int				bonus;
 	t_mandelbrot	mdlbr;
 	t_julia			julia;
-	t_trees			trees;
+	t_sierpinski	sierpinski;
 	double			random;
 	double			random_two;
 	double			moveX;
@@ -188,9 +188,9 @@ int		get_g(int trgb);
 int		get_b(int trgb);
 int		julia(t_fractol *fractol);
 int		mandelbrot(t_fractol *cub);
-int		trees(t_fractol *fractol);
 int		destroy(t_fractol *fractol);
 int		fractals(t_fractol *fractol);
+int		sierpinski(t_fractol *fractol);
 int		keys(int keycode, t_fractol *fractol);
 int		create_trgb(int t, int r, int g, int b);
 int		my_pixel_get(t_img *data, int x, int y);

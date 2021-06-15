@@ -6,13 +6,13 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 16:32:21 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:33:46 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int trees(t_fractol *fractol)
+int sierpinski(t_fractol *fractol)
 { /*
 	int x;
 	int y;

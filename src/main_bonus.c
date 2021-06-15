@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 15:25:03 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:34:52 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ static void	setup(t_fractol *fractol)
 static void	good_args(char **argv, t_fractol *fractol)
 {
 	if (!ft_strcmp("julia", argv[1]) && !ft_strcmp("mandelbrot", argv[1])
-		&& !ft_strcmp("trees", argv[1]))
+		&& !ft_strcmp("sierpinski", argv[1]))
 	{
 		printf("Error\nUnknown set: \"%s\""
-			   "\nTry with:\n\t·julia\n\t·mandelbrot\n\t·trees\n",
+			   "\nTry with:\n\t·julia\n\t·mandelbrot\n\t·sierpinski\n",
 			   argv[1]);
 		exit(1);
 	}
@@ -65,8 +65,8 @@ static void	good_args(char **argv, t_fractol *fractol)
 		fractol->julia.selected = 1;
 	if (ft_strcmp("mandelbrot", argv[1]))
 		fractol->mdlbr.selected = 1;
-	if (ft_strcmp("trees", argv[1]))
-		fractol->trees.selected = 1;
+	if (ft_strcmp("sierpinski", argv[1]))
+		fractol->sierpinski.selected = 1;
 	fractol->mlx = mlx_init();
 	if (!fractol->mlx)
 		print_simple_errors("There was a problem with MiniLibx");
@@ -88,7 +88,7 @@ int	main(int argc, char **argv)
 	fractol.bonus = 1;
 	if (argc < 2)
 		print_simple_errors("A set is needed"
-			"\nTry with:\n\t·julia\n\t·mandelbrot\n\t·trees\n");
+			"\nTry with:\n\t·julia\n\t·mandelbrot\n\t·sierpinski\n");
 	if (argc == 2)
 	{
 		if (!(ft_strcmp("./fractol", argv[0]) || ft_strcmp("fractol", argv[0])))
