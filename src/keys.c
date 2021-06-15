@@ -6,13 +6,13 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 19:34:57 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:04:19 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int destroy(t_fractol *fractol)
+int	destroy(t_fractol *fractol)
 {
 	fractol->mdlbr.selected = 0;
 	fractol->julia.selected = 0;
@@ -21,7 +21,7 @@ int destroy(t_fractol *fractol)
 	exit(0);
 }
 
-int keys(int keycode, t_fractol *fractol)
+int	keys(int keycode, t_fractol *fractol)
 {
 	if (keycode == K_ESC)
 		destroy(fractol);
@@ -43,7 +43,7 @@ int keys(int keycode, t_fractol *fractol)
 	return (keycode);
 }
 
-static void change_fractal(t_fractol *fractol)
+static void	change_fractal(t_fractol *fractol)
 {
 	if (fractol->julia.selected)
 	{
@@ -75,7 +75,7 @@ static void change_fractal(t_fractol *fractol)
 	}
 }
 
-int keys_release(int keycode, t_fractol *fractol)
+int	keys_release(int keycode, t_fractol *fractol)
 {
 	if (fractol->bonus)
 	{
@@ -105,37 +105,13 @@ int keys_release(int keycode, t_fractol *fractol)
 	return (keycode);
 }
 
-// TODO: Zoom to mouse position
-
-int mouse_hook(int keycode, int x, int y, t_fractol *fractol)
+int	mouse_hook(int keycode, int x, int y, t_fractol *fractol)
 {
-	x++; y++;
+	x++;
+	y++;
 	if (keycode == SCROLL_UP && fractol->zoom > 0.1)
 		fractol->zoom_out = 1;
 	if (keycode == SCROLL_DOWN)
 		fractol->zoom_in = 1;
-	if (fractol->bonus)
-	{
-		/*
-		if (x >= fractol->screen.x / 2)
-		{
-			fractol->moveX += (x * 0.000003) * FRAME_TIME / fractol->zoom;
-		}
-		else
-		{
-
-			fractol->moveX -= (x * 0.000003) * FRAME_TIME / fractol->zoom;
-		}
-
-		if (y >= fractol->screen.y / 2)
-		{
-			fractol->moveY += (y * 0.000003) * FRAME_TIME / fractol->zoom;
-		}
-		else
-		{
-
-			fractol->moveY -= (y * 0.000003) * FRAME_TIME / fractol->zoom;
-		}*/
-	}
 	return (0);
 }

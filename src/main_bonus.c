@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 19:35:19 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:05:21 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,18 @@ static void	setup(t_fractol *fractol)
 	mlx_loop(fractol->mlx);
 }
 
+static void	set_selected(t_fractol *fractol, char **argv)
+{
+	if (ft_strcmp("julia", argv[1]))
+		fractol->julia.selected = 1;
+	if (ft_strcmp("mandelbrot", argv[1]))
+		fractol->mdlbr.selected = 1;
+	if (ft_strcmp("sierpinski", argv[1]))
+		fractol->sierpinski.selected = 1;
+	if (ft_strcmp("trees", argv[1]))
+		fractol->trees.selected = 1;
+}
+
 static void	good_args(char **argv, t_fractol *fractol)
 {
 	if (!ft_strcmp("julia", argv[1]) && !ft_strcmp("mandelbrot", argv[1])
@@ -61,14 +73,7 @@ static void	good_args(char **argv, t_fractol *fractol)
 			   argv[1]);
 		exit(1);
 	}
-	if (ft_strcmp("julia", argv[1]))
-		fractol->julia.selected = 1;
-	if (ft_strcmp("mandelbrot", argv[1]))
-		fractol->mdlbr.selected = 1;
-	if (ft_strcmp("sierpinski", argv[1]))
-		fractol->sierpinski.selected = 1;
-	if (ft_strcmp("trees", argv[1]))
-		fractol->trees.selected = 1;
+	set_selected(fractol, argv);
 	fractol->mlx = mlx_init();
 	if (!fractol->mlx)
 		print_simple_errors("There was a problem with MiniLibx");

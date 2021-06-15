@@ -6,23 +6,21 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 16:06:30 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:03:27 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
 /*
-	IDEAS BONUS:
-	• Un fractal diferente más.
-	• El zoom sigue la posición actual del ratón.
-	• Adicionalmente al zoom: moverse con flechas. +wasd
-	• Haz que el rango de color cambie.
-	// save? TODO: regla bonus?????
-	· Musikita en bonus
-	· cambiar iteraciones + -
-	· cambiar formas x y z julia
-	$ cambiar entre fracatales con el enter
+	BONUS:
+	· Un fractal diferente mas.
+	· Adicionalmente al zoom: moverse con flechas. (WASD También).
+	· Haz que el rango de color cambie.
+	PROPIOS:
+	· Cambiar iteraciones con + -
+	· Cambiar formas en Julia con 1 2 3 4
+	· Cambiar entre Fractales con Enter
 */
 
 static void	initialize_fractals(t_fractol *fractol)

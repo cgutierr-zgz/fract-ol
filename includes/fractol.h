@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 19:29:43 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:01:43 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h>
 # include <math.h>
 
-#define FRAME_TIME 120.0
+# define FRAME_TIME 120.0
 // Buttons
 # define K_ESC			53
 # define K_W			13
@@ -210,7 +210,5 @@ void	print_simple_errors(char *str);
 void	fractal_keys(t_fractol *fractol);
 void	set_color(t_fractol *fractol, int *i);
 void	my_pixel_put(t_img *img, int x, int y, int color);
-
-// FIXME: void	bmp_save(t_fractol *fractol);
 
 #endif
