@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 14:09:04 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:06:30 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 	IDEAS BONUS:
 	• Un fractal diferente más.
 	• El zoom sigue la posición actual del ratón.
-	• Adicionalmente al zoom: moverse con flechas.
+	• Adicionalmente al zoom: moverse con flechas. +wasd
 	• Haz que el rango de color cambie.
 	// save? TODO: regla bonus?????
 	· Musikita en bonus

@@ -6,13 +6,11 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 02:19:53 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/11 10:33:07 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:08:31 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-#define FRAME_TIME 120.0
 
 static void	move_keys(t_fractol *fractol)
 {

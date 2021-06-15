@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 15:25:51 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:08:35 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <math.h>
 
+#define FRAME_TIME 120.0
 // Buttons
 # define K_ESC			53
 # define K_W			13
