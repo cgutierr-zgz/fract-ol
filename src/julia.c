@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 15:15:32 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:16:31 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,6 @@ int julia(t_fractol *fractol)
 	//TODO:FIXME:TODO://redraw(); //JULIA KEYS
 	/*
     //CHANGE SHAPE keys
-    if(keyDown(SDLK_KP2)) {cIm += 0.0002 * frameTime / zoom;}
-    if(keyDown(SDLK_KP8)) {cIm -= 0.0002 * frameTime / zoom;}
-    if(keyDown(SDLK_KP6)) {cRe += 0.0002 * frameTime / zoom;}
-    if(keyDown(SDLK_KP4)) {cRe -= 0.0002 * frameTime / zoom;}
 	*/
 	return (0);
 }

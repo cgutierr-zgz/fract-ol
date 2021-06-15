@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 16:08:35 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:18:59 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@
 # define K_ENTER		36
 # define SCROLL_UP		4
 # define SCROLL_DOWN	5
+# define K_ONE			18
+# define K_TWO			19
+# define K_THREE		20
+# define K_FOUR			21
 
 // X11 Events
 # define KEY_PRESS				02
