@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 16:16:31 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:22:10 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,5 @@ int julia(t_fractol *fractol)
 			my_pixel_put(&fractol->main_img, x, y, fractol->color);
 		}
 
-	mlx_put_image_to_window(fractol->mlx, fractol->window,
-							fractol->main_img.img, 0, 0);
-
-	//TODO:FIXME:TODO://redraw(); //JULIA KEYS
-	/*
-    //CHANGE SHAPE keys
-	*/
 	return (0);
 }

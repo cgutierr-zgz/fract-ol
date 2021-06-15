@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 16:20:36 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:23:13 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int keys(int keycode, t_fractol *fractol)
 		if (keycode == K_LESS)
 			fractol->less_iter = 1;
 	}
-	printf("KEY = %d\n", keycode);
 	return (keycode);
 }
 
@@ -98,32 +97,31 @@ int keys_release(int keycode, t_fractol *fractol)
 
 int mouse_hook(int keycode, int x, int y, t_fractol *fractol)
 {
-	x++;
-	y++;
-	//	printf("%d,%d\n",x,y);
 	if (keycode == SCROLL_UP && fractol->zoom > 0.1)
 		fractol->zoom_out = 1;
 	if (keycode == SCROLL_DOWN)
 		fractol->zoom_in = 1;
-
-	if (x >= fractol->screen.x / 2)
+	if (fractol->bonus)
 	{
-		fractol->moveX += (x * 0.000003) * FRAME_TIME / fractol->zoom;
-	}
-	else
-	{
+		if (x >= fractol->screen.x / 2)
+		{
+			fractol->moveX += (x * 0.000003) * FRAME_TIME / fractol->zoom;
+		}
+		else
+		{
 
-		fractol->moveX -= (x * 0.000003) * FRAME_TIME / fractol->zoom;
-	}
+			fractol->moveX -= (x * 0.000003) * FRAME_TIME / fractol->zoom;
+		}
 
-	if (y >= fractol->screen.y / 2)
-	{
-		fractol->moveY += (y * 0.000003) * FRAME_TIME / fractol->zoom;
-	}
-	else
-	{
+		if (y >= fractol->screen.y / 2)
+		{
+			fractol->moveY += (y * 0.000003) * FRAME_TIME / fractol->zoom;
+		}
+		else
+		{
 
-		fractol->moveY -= (y * 0.000003) * FRAME_TIME / fractol->zoom;
+			fractol->moveY -= (y * 0.000003) * FRAME_TIME / fractol->zoom;
+		}
 	}
 	return (0);
 }

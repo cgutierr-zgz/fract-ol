@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 15:15:15 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:22:24 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,5 @@ int	mandelbrot(t_fractol *fractol)
 		}
 		y++;
 	}
-	fractal_keys(fractol);
-	mlx_put_image_to_window(fractol->mlx, fractol->window,
-		fractol->main_img.img, 0, 0);
 	return (0);
 }
