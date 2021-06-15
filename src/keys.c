@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 16:33:32 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 17:30:19 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,14 @@ int keys_release(int keycode, t_fractol *fractol)
 
 int mouse_hook(int keycode, int x, int y, t_fractol *fractol)
 {
+	x++; y++;
 	if (keycode == SCROLL_UP && fractol->zoom > 0.1)
 		fractol->zoom_out = 1;
 	if (keycode == SCROLL_DOWN)
 		fractol->zoom_in = 1;
 	if (fractol->bonus)
 	{
+		/*
 		if (x >= fractol->screen.x / 2)
 		{
 			fractol->moveX += (x * 0.000003) * FRAME_TIME / fractol->zoom;
@@ -121,7 +123,7 @@ int mouse_hook(int keycode, int x, int y, t_fractol *fractol)
 		{
 
 			fractol->moveY -= (y * 0.000003) * FRAME_TIME / fractol->zoom;
-		}
+		}*/
 	}
 	return (0);
 }

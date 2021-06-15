@@ -1,77 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trees.c                                            :+:      :+:    :+:   */
+/*   sierpinski.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 16:33:46 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/15 17:29:22 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
 int sierpinski(t_fractol *fractol)
-{ /*
+{
+	int y = 0;
 	int x;
-	int y;
-
+	int i;
 	y = 0;
 	while (y < fractol->screen.y)
 	{
+		i = rand() * sin(x * y) / 2;
 		x = 0;
+
 		while (x < fractol->screen.x)
 		{
-			fractol->color = create_trgb(0, 0, 0, 0);
-			my_pixel_put(&fractol->main_img, x, y, fractol->color);
-			x++;
-		}
-		y++;
-	}*/
-	for (int y = 0; y < fractol->screen.y; y++)
-		for (int x = 0; x < fractol->screen.x; x++)
-		{
-			if (
-				//Not both the first (rightmost) digits are '1' in base 3
-				!(
-					(x / 1) % 3 == 1 && (y / 1) % 3 == 1)
+			//	if (!((x / 1) % rando == 1 && (y / 1) % rando == 1) && !((x / rando) % rando == 1 && (y / rando) % rando == 1) && !((x / (rando * 3)) % rando == 1 && (y / (rando * 3)) % rando == 1) && !((x / (rando * 9)) % rando == 1 && (y / (rando * 9)) % rando == 1) && !((x / (rando * 27)) % rando == 1 && (y / (27 * rando)) % rando == 1))
 
-				&&
-
-				//Not both the second digits are '1' in base 3
-				!(
-					(x / 3) % 3 == 1 && (y / 3) % 3 == 1)
-
-				&&
-
-				//Not both the third digits are '1' in base 3
-				!(
-					(x / 9) % 3 == 1 && (y / 9) % 3 == 1)
-
-				&&
-
-				//Not both the fourth digits are '1' in base 3
-				!(
-					(x / 27) % 3 == 1 && (y / 27) % 3 == 1)
-
-				&&
-
-				//Not both the fifth digits are '1' in base 3
-				!(
-					(x / 81) % 3 == 1 && (y / 81) % 3 == 1))
+			if (!((x / 1) % 3 == 1 && (y / 1) % 3 == 1) && !((x / 3) % 3 == 1 && (y / 3) % 3 == 1) && !((x / 9) % 3 == 1 && (y / 9) % 3 == 1) && !((x / 27) % 3 == 1 && (y / 27) % 3 == 1) && !((x / 81) % 3 == 1 && (y / 81) % 3 == 1))
 			{
-
-				fractol->color = 231332; //create_trgb(0, 0, 0, 0);
+				set_color(fractol, &i); // &x, etc...
+				//fractol->color = 231332;
 				my_pixel_put(&fractol->main_img, x, y, fractol->color);
 			}
 			else
 			{
-
 				fractol->color = create_trgb(0, 0, 0, 0);
 				my_pixel_put(&fractol->main_img, x, y, fractol->color);
 			}
-			//pset(x, y, RGB_White);
+			x++;
 		}
+		y++;
+	}
 	return (0);
 }
