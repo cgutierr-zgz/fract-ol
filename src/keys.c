@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 17:17:54 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 18:21:45 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ int	keys_release(int keycode, t_fractol *fractol)
 
 int	mouse_hook(int keycode, int x, int y, t_fractol *fractol)
 {
-	x++;
-	y++;
+	mlx_mouse_get_pos(fractol->window, &x, &y);
 	if (keycode == SCROLL_UP && fractol->zoom > 0.1)
 		fractol->zoom_out = 1;
 	if (keycode == SCROLL_DOWN)

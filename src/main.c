@@ -6,24 +6,34 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 16:50:59 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 18:06:17 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
 /*
-	BONUS:
-	· Un fractal diferente mas.
-	· Adicionalmente al zoom: moverse con flechas. (WASD También).
-	· Haz que el rango de color cambie.
-	PROPIOS:
-	· Cambiar iteraciones con + -
-	· Cambiar formas en Julia con 1 2 3 4
-	· Cambiar entre Fractales con Enter
-	//TODO: Usar al menos unos pocos colores para mostrar profundidad de cada
-	fractal
-	// TODO: ignorar > 2
+**********************************************************
+**						BONUS							**
+**********************************************************
+**	· Un fractal diferente mas.						✅  **
+**	· Adicionalmente al zoom: moverse con flechas.	✅  **
+**	· Haz que el rango de color cambie.				✅  **
+**	· El zoom sigue la posición actual del ratón.	❌  **
+**														**
+**					TOTAL: 3 / 4						**
+**********************************************************
+
+**********************************************************
+**					BONUS PROPIOS						**
+**********************************************************
+**	· Moverse con WASD.								✅  **
+**	· Cambiar iteraciones con + -.					✅  **
+**	· Cambiar formas en Julia con 1 2 3 4.			✅  **
+**	· Cambiar entre Fractales con Enter.			✅  **
+**														**
+**					TOTAL: 4 / 4						**
+**********************************************************
 */
 
 static void	initialize_fractals(t_fractol *fractol)
