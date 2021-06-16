@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 17:15:39 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:57:10 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	main(int argc, char **argv)
 			"\nTry with:\n\t·julia\n\t·mandelbrot\n\t·sierpinski\n");
 		exit(1);
 	}
-	if (argc == 2)
+	if (argc >= 2)
 	{
 		if (!(ft_strcmp("./fractol", argv[0]) || ft_strcmp("fractol", argv[0])))
 			print_simple_errors("Executable must be a \"fractol\" file");
