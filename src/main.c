@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/15 21:03:27 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 16:50:59 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 	· Cambiar iteraciones con + -
 	· Cambiar formas en Julia con 1 2 3 4
 	· Cambiar entre Fractales con Enter
+	//TODO: Usar al menos unos pocos colores para mostrar profundidad de cada
+	fractal
+	// TODO: ignorar > 2
 */
 
 static void	initialize_fractals(t_fractol *fractol)
@@ -49,11 +52,27 @@ static void	setup(t_fractol *fractol)
 	mlx_loop(fractol->mlx);
 }
 
-static void	good_args(char **argv, t_fractol *fractol)
+static void	print_ignored_args(int argc, char **argv)
+{
+	int	i;
+
+	i = 2;
+	if (argc > 2)
+	{
+		printf("The following arguments will be ignored:\n");
+		while (i < argc)
+		{
+			printf(RED "\t·%s\n" RESET, argv[i]);
+			i++;
+		}
+	}
+}
+
+static void	good_args(char **argv, t_fractol *fractol, int argc)
 {
 	if (!ft_strcmp("julia", argv[1]) && !ft_strcmp("mandelbrot", argv[1]))
 	{
-		printf("Error\nUnknown set: \"%s\""
+		printf("Error\nUnknown set: " RED "\"%s\"" RESET
 			   "\nTry with:\n\t·julia\n\t·mandelbrot\n",
 			   argv[1]);
 		exit(1);
@@ -72,6 +91,7 @@ static void	good_args(char **argv, t_fractol *fractol)
 			fractol->screen.y - 55, "fract-ol");
 	if (!(fractol->window))
 		print_simple_errors("There was a problem opening a new Window");
+	print_ignored_args(argc, argv);
 	setup(fractol);
 }
 
@@ -82,15 +102,16 @@ int	main(int argc, char **argv)
 	ft_bzero(&fractol, sizeof(t_fractol));
 	fractol.bonus = 0;
 	if (argc < 2)
-		print_simple_errors("A set is needed"
-			"\nTry with:\n\t·julia\n\t·mandelbrot");
-	if (argc == 2)
+	{
+		printf("Error\n" RED "A set is needed" RESET
+			"\nTry with:\n\t·julia\n\t·mandelbrot\n");
+		exit(1);
+	}
+	if (argc >= 2)
 	{
 		if (!(ft_strcmp("./fractol", argv[0]) || ft_strcmp("fractol", argv[0])))
 			print_simple_errors("Executable must be a \"fractol\" file");
-		good_args(argv, &fractol);
+		good_args(argv, &fractol, argc);
 	}
-	if (argc > 2)
-		print_simple_errors("Too many arguments");
 	return (0);
 }

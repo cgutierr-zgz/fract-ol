@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:45:44 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 12:57:04 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:17:54 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	destroy(t_fractol *fractol)
 	fractol->mdlbr.selected = 0;
 	fractol->julia.selected = 0;
 	fractol->sierpinski.selected = 0;
-	fractol->grid.selected = 0;
+	printf(GREEN "Have a nice day!\n" RESET);
 	exit(0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 12:00:56 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 12:35:41 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:17:41 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,6 @@ static void	set_text(t_fractol *fractol)
 	else if (fractol->sierpinski.selected)
 		mlx_string_put(fractol->mlx, fractol->window, 10, 25,
 			321321, "Sierpinski");
-	else if (fractol->grid.selected)
-		mlx_string_put(fractol->mlx, fractol->window, 10, 25,
-			321321, "Grid");
 }
 
 int	fractals(t_fractol *fractol)
@@ -70,8 +67,6 @@ int	fractals(t_fractol *fractol)
 		mandelbrot(fractol);
 	else if (fractol->sierpinski.selected)
 		sierpinski(fractol);
-	else if (fractol->grid.selected)
-		grid(fractol);
 	fractal_keys(fractol);
 	mlx_put_image_to_window(fractol->mlx, fractol->window,
 		fractol->main_img.img, 0, 0);

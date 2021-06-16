@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sierpinski.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 15:45:19 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:12:41 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,19 @@
 static void	mainsierpinki(int *x, int y, t_fractol *fractol)
 {
 	int	n;
+	int	j;
 
+	j = 1;
 	if (fractol->random > 8)
 		fractol->random = 4;
-	n = fractol->random / 2;
+	n = 2 + (((int)(fractol->random)) / 2);
 	if (!((*x / 1) % n == 1 && (y / 1) % n == 1) && !((*x / 3) % n == 1
 			&& (y / 3) % n == 1) && !((*x / 9) % n == 1
 			&& (y / 9) % n == 1) && !((*x / 27) % n == 1
 			&& (y / 27) % n == 1) && !((*x / 81) % n == 1
 			&& (y / 81) % n == 1))
 	{
-		set_color(fractol, &n);
+		set_color(fractol, &j);
 		my_pixel_put(&fractol->main_img, *x, y, fractol->color);
 	}
 	else

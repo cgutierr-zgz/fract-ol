@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:39 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 12:35:01 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:15:16 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@
 # include <stdio.h>
 # include <math.h>
 
-# define FRAME_TIME 120.0
+# define RESET			"\x1b[0m"
+# define GREEN			"\x1b[32m"
+# define RED			"\x1b[31m"
+
+# define FRAME_TIME		120.0
 // Buttons
 # define K_ESC			53
 # define K_W			13
@@ -154,11 +158,6 @@ typedef struct s_sierpinski
 	int		selected;
 }	t_sierpinski;
 
-typedef struct s_grid
-{
-	int		selected;
-}	t_grid;
-
 typedef struct s_fractol
 {
 	t_img			main_img;
@@ -169,7 +168,6 @@ typedef struct s_fractol
 	t_mandelbrot	mdlbr;
 	t_julia			julia;
 	t_sierpinski	sierpinski;
-	t_grid			grid;
 	double			random;
 	double			random_two;
 	double			moveX;
@@ -193,7 +191,6 @@ int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
 int		julia(t_fractol *fractol);
-int		grid(t_fractol *fractol);
 int		mandelbrot(t_fractol *cub);
 int		destroy(t_fractol *fractol);
 int		fractals(t_fractol *fractol);
