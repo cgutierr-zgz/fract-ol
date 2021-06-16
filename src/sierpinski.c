@@ -6,28 +6,11 @@
 /*   By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:53:23 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 15:23:02 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 15:45:19 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-static void	siercoloinki(t_fractol *fractol, int n, int x, int y)
-{
-	if (n % 2 == 0)
-		fractol->color = create_trgb(0, (cos(y) + y + x) * n,
-				(x + y * 2), (y + x * 2));
-	else if (n % 4 == 0)
-		fractol->color = create_trgb(0, (sin(y) - y + x) * n,
-				(x - y / 2), (-y + x * 4));
-	else if (n % 1 == 0)
-		set_color(fractol, &n);
-	else if (n / 2 == 0)
-		fractol->color = create_trgb(0, (tan(y) - y - x) * n + 2,
-				(x + y / 4), sin(y + x * 18));
-	else
-		fractol->color = create_trgb(0, 12, 24, 36);
-}
 
 static void	mainsierpinki(int *x, int y, t_fractol *fractol)
 {
@@ -42,7 +25,7 @@ static void	mainsierpinki(int *x, int y, t_fractol *fractol)
 			&& (y / 27) % n == 1) && !((*x / 81) % n == 1
 			&& (y / 81) % n == 1))
 	{
-		siercoloinki(fractol, n, *x, y);
+		set_color(fractol, &n);
 		my_pixel_put(&fractol->main_img, *x, y, fractol->color);
 	}
 	else
