@@ -4,14 +4,13 @@
 # Usage
 `make` to compile.
 
-`mak exe` to execute the program.
-
-or 
-
 ```
 ./fractol julia
 ./fractol mandelbrot
+./fractol sierpinski
 ```
+
+Use `--fullscreen` to set the window in fullscreen mode, default window is 500x500
 
 Controls:
 
@@ -20,5 +19,7 @@ Controls:
 `⏎` to change between fractals
 
 `+` or `-` to increase or decrease the iterations
+
+`1 2 3 4` to change Julia set
 
 `Mouse wheel` to zoom in/out
