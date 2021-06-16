@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/15 21:23:34 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/16 12:35:28 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS		=	./src/main.c \
 				./src/mandelbrot.c \
 				./src/julia.c \
 				./src/sierpinski.c \
-				./src/trees.c \
+				./src/grid.c \
 				./src/movement.c \
 				./src/change_fractal.c \
 				./src/utils.c
@@ -39,7 +39,7 @@ SRCS_BONUS	=	./src/main_bonus.c \
 				./src/mandelbrot.c \
 				./src/julia.c \
 				./src/sierpinski.c \
-				./src/trees.c \
+				./src/grid.c \
 				./src/movement.c \
 				./src/change_fractal.c \
 				./src/utils.c
