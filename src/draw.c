@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 12:00:56 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 17:17:41 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 17:50:51 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,17 @@ void	set_color(t_fractol *fractol, int *i)
 	int	g;
 	int	b;
 
+	if (!fractol->bonus)
+	{
+		fractol->random = 2;
+		fractol->random_two = 4;
+	}
 	g = (int)(255 * ((double)*i / (double)fractol->maxIterations));
 	r = ((255 - g) * 0.60) * fabs(cos(fractol->random));
 	b = ((255 - g) * 0.2) * fabs(sin(fractol->random_two));
-	fractol->color = create_trgb(0, r * fractol->random, g, b);
+	fractol->color = create_trgb(0, r * fractol->random, g
+			* asin((double)fractol->maxIterations),
+			b * (double)fractol->maxIterations);
 	if (g == 255)
 		fractol->color = create_trgb(0, 0, 0, 0);
 }
