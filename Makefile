@@ -6,11 +6,9 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/16 17:18:09 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/16 17:20:23 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-# REF: https://lodev.org/cgtutor/juliamandelbrot.html
 
 DAY			=	$(shell date +'%d/%m/%Y %H:%M')
 
