@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 12:00:56 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 17:50:51 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 18:32:40 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	fractals(t_fractol *fractol)
 	fractal_keys(fractol);
 	mlx_put_image_to_window(fractol->mlx, fractol->window,
 		fractol->main_img.img, 0, 0);
-	set_text(fractol);
+	if (fractol->bonus)
+		set_text(fractol);
 	return (0);
 }

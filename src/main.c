@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 18:06:17 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 18:33:02 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@
 **	· Cambiar iteraciones con + -.					✅  **
 **	· Cambiar formas en Julia con 1 2 3 4.			✅  **
 **	· Cambiar entre Fractales con Enter.			✅  **
+**	· Posibilidad de usar --fulscreen.				✅  **
+**	· Identificador del fractal (Texto).			✅  **
 **														**
-**					TOTAL: 4 / 4						**
+**					TOTAL: 6 / 6						**
 **********************************************************
 */
 

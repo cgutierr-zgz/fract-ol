@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 17:58:13 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/16 18:31:13 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	setup(t_fractol *fractol, char **argv)
 	mlx_loop(fractol->mlx);
 }
 
-static void	print_ignored_args(int argc, char **argv)
+static void	print_ignored_args(int argc, char **argv, t_fractol *fractol)
 {
 	int	i;
 
@@ -54,7 +54,11 @@ static void	print_ignored_args(int argc, char **argv)
 		printf("The following arguments will be ignored:\n");
 		while (i < argc)
 		{
-			printf(RED "\t·%s\n" RESET, argv[i]);
+			if (ft_strcmp("--fullscreen", argv[i]))
+				mlx_get_screen_size(fractol->mlx,
+					&fractol->screen.x, &fractol->screen.y);
+			else
+				printf(RED "\t·%s\n" RESET, argv[i]);
 			i++;
 		}
 	}
@@ -73,14 +77,13 @@ static void	good_args(char **argv, t_fractol *fractol, int argc)
 	fractol->mlx = mlx_init();
 	if (!fractol->mlx)
 		print_simple_errors("There was a problem with MiniLibx");
-	mlx_get_screen_size(fractol->mlx, &fractol->screen.x, &fractol->screen.y);
 	fractol->screen.x = 500;
 	fractol->screen.y = 500;
+	print_ignored_args(argc, argv, fractol);
 	fractol->window = mlx_new_window(fractol->mlx, fractol->screen.x,
-			fractol->screen.y - 55, "fract-ol");
+			fractol->screen.y - 45, "fract-ol");
 	if (!(fractol->window))
 		print_simple_errors("There was a problem opening a new Window");
-	print_ignored_args(argc, argv);
 	setup(fractol, argv);
 }
 
