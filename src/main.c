@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 18:33:02 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/17 16:12:31 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@
 static void	initialize_fractals(t_fractol *fractol)
 {
 	fractol->zoom = 1;
-	fractol->moveX = -0.5;
-	fractol->moveY = 0;
-	fractol->maxIterations = 24;
+	fractol->moveX = -0.75;
+	fractol->moveY = -0.25;
+	fractol->maxIterations = 250;
 	fractol->julia.cRe = -0.7;
 	fractol->julia.cIm = 0.27015;
 }

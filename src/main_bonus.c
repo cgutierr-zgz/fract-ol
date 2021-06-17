@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:48:28 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/16 18:31:13 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/17 16:13:47 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ static void	good_args(char **argv, t_fractol *fractol, int argc)
 		&& !ft_strcmp("sierpinski", argv[1]))
 	{
 		printf("Error\nUnknown set: " RED "\"%s\"" RESET
-			   "\nTry with:\n\t·julia\n\t·mandelbrot\n\t·sierpinski\n",
-			   argv[1]);
+			   "\nTry with:\n\t·julia\n\t·mandelbrot\n\t·sierpinski\n"
+			"\nYou can also use \"--fullscreen\" for fullscreen mode\n",
+			argv[1]);
 		exit(1);
 	}
 	fractol->mlx = mlx_init();
@@ -96,7 +97,8 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 	{
 		printf("Error\n" RED "A set is needed" RESET
-			"\nTry with:\n\t·julia\n\t·mandelbrot\n\t·sierpinski\n");
+			"\nTry with:\n\t·julia\n\t·mandelbrot\n\t·sierpinski\n"
+			"\nYou can also use \"--fullscreen\" for fullscreen mode\n");
 		exit(1);
 	}
 	if (argc >= 2)

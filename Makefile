@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/09 15:44:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/16 17:20:23 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/17 16:05:52 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,8 +78,9 @@ fclean:			clean
 
 re:				fclean all
 
-bonus:			clean $(OBJS_BONUS) $(MINILIBX)
+bonus:			$(OBJS_BONUS) $(LIBFT) $(MINILIBX)
 				@echo $(YELLOW)Compiling Bonus ... $(RESET)
+				@rm ./src/main.o || true
 				$(CC) ${CFLAGS} ${OBJS_BONUS} -I $(HEADER) ${MLXFLAGS} $(MLXNAME) -o ${NAME}
 
 #Colors
