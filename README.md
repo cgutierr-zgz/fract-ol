@@ -4,6 +4,8 @@
 # Usage
 `make` to compile.
 
+`make bonus` to compile with bonus.
+
 ```
 ./fractol julia
 ./fractol mandelbrot
