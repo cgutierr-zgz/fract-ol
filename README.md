@@ -1,5 +1,5 @@
 # fract-ol
-<img src ="https://img.shields.io/badge/Result-XXX%2F100-green"/>
+<img src ="https://img.shields.io/badge/Result-120%2F100-green"/>
 
 # Usage
 `make` to compile.
